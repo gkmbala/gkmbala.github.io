@@ -17,40 +17,40 @@ Senior Developer and Technology Specialist with **14+ years** of experience buil
 ## 🛠️ Tech Stack
 
 ### Languages
+![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 
 ### Backend & Frameworks
 ![Adobe Commerce](https://img.shields.io/badge/Adobe%20Commerce-F21900)
+![Flask & Diango](https://img.shields.io/badge/Flask%20&%20Django-3f77a7)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 ![ASP.NET](https://img.shields.io/badge/ASP.NET-512BD4?style=flat&logo=dotnet&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
-![Flask & Diango](https://img.shields.io/badge/Flask%20&%20Django-3f77a7)
+
 
 ### Databases
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)
 ![Microsoft SQL Server](https://img.shields.io/badge/SQL_Server-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white)
 
 ### Cloud & DevOps
+![AWS](https://img.shields.io/badge/AWS%20-8A2BE2)
 ![Azure](https://img.shields.io/badge/Azure-0089D6?style=flat&logo=microsoft-azure&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat&logo=kubernetes&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 ![GitLab](https://img.shields.io/badge/GitLab-FC6D26?style=flat&logo=gitlab&logoColor=white)
 ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat&logo=terraform&logoColor=white)
 ![Ansible](https://img.shields.io/badge/Ansible-EE0000?style=flat&logo=ansible&logoColor=white)
 
-### Low-Code Platforms
-![Power Platform](https://img.shields.io/badge/Power_Platform-742774?style=flat&logo=microsoft&logoColor=white)
-![Power Automate](https://img.shields.io/badge/Power_Automate-0066FF?style=flat&logo=microsoft&logoColor=white)
+### Data Platforms
 ![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat&logo=power-bi&logoColor=black)
+![Zoho Analytics](https://img.shields.io/badge/Zoho%20Analytics-8A2BE2)
+![Power Automate](https://img.shields.io/badge/Power_Automate-0066FF?style=flat&logo=microsoft&logoColor=white)
+
 
 ### AI & Automation
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
@@ -78,6 +78,11 @@ Senior Developer and Technology Specialist with **14+ years** of experience buil
 - Led software development teams on enterprise projects
 - Delivered scalable solutions with MySQL and GitHub workflows
 - Mentored team members on best practices and code quality
+
+### 🔧 Junior Developer — Tychon Solution USA
+**July 2012 - Sep 2019 | Chennai, India**
+- Writing clean, maintainable code for features or bug fixes, often in languages like JavaScript, PHP, or .NET.
+- Participating in Agile/Scrum and resolving issues within existing MySQL and GitHub workflows
 
 ## 📊 GitHub Stats
 
