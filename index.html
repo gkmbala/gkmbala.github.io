@@ -742,7 +742,7 @@
 <!-- FOOTER -->
 <footer>
   <p class="footer-left">"First make it work, then make it right, then make it fast."</p>
-  <p class="footer-right">© 2025 Balaji Kaliyaperumal · Powered by FastAPI + GitHub Pages</p>
+  <p class="footer-right">© 2025 Balaji Kaliyaperumal GitHub Pages</p>
 </footer>
 
 <!-- ══════════════════════════════════════════
@@ -767,7 +767,7 @@
       </div>
       <div>
         <div class="chat-title">Balaji's Portfolio</div>
-        <div class="chat-subtitle">Ask me anything · Powered by FastAPI</div>
+        <div class="chat-subtitle">Ask about skills, experience, and projects</div>
       </div>
     </div>
     <button class="chat-close" onclick="toggleChat()">✕</button>
@@ -842,28 +842,28 @@
      JAVASCRIPT
 ══════════════════════════════════════════ -->
 <script>
-  // ── Config ─────────────────────────────────────────────
-  // REPLACE 'gkmbala' with your actual dashboard.render username
-  const API = 'https://balaji-portfolio-api.onrender.com';
+  const API = 'https://gkmbala.pythonanywhere.com';
 
-  // ── CAPTCHA ─────────────────────────────────────────────
+  // ── CAPTCHA ──────────────────────────────────────────────
   let captchaAnswer = 0;
+
+  function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   function newCaptcha() {
     const ops = ['+', '-', '×'];
     const op  = ops[Math.floor(Math.random() * ops.length)];
     let a, b, ans;
-    if (op === '+') { a = rand(2,12); b = rand(2,12); ans = a + b; }
-    else if (op === '-') { a = rand(5,15); b = rand(1, a); ans = a - b; }
-    else { a = rand(2, 9); b = rand(2, 9); ans = a * b; }
+    if      (op === '+') { a = rand(2,12); b = rand(2,12); ans = a + b; }
+    else if (op === '-') { a = rand(5,15); b = rand(1,a);  ans = a - b; }
+    else                 { a = rand(2,9);  b = rand(2,9);  ans = a * b; }
     captchaAnswer = ans;
     document.getElementById('captcha-q').textContent = `${a} ${op} ${b}`;
     document.getElementById('captcha-ans').value = '';
   }
 
-  function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
-
-  // ── CHAT PANEL TOGGLE ────────────────────────────────────
+  // ── CHAT TOGGLE ──────────────────────────────────────────
   let chatOpen = false;
   function toggleChat() {
     chatOpen = !chatOpen;
@@ -871,19 +871,18 @@
     if (chatOpen) setTimeout(() => document.getElementById('visitor-name').focus(), 300);
   }
 
-  // ── INTRO FORM SUBMIT ────────────────────────────────────
-  let visitorName  = '';
-  let visitorEmail = '';
-  let visitorCo    = '';
+  // ── VISITOR STATE ────────────────────────────────────────
+  let visitorName = '', visitorEmail = '', visitorCo = '';
 
-  async function submitIntro() {
-    // Clear previous errors
-    ['err-name','err-email','err-captcha'].forEach(id => {
-      document.getElementById(id).style.display = 'none';
-    });
-    ['visitor-name','visitor-email','captcha-ans'].forEach(id => {
-      document.getElementById(id).classList.remove('error');
-    });
+  // ── INTRO FORM ───────────────────────────────────────────
+  function submitIntro() {
+    // Clear errors
+    ['err-name','err-email','err-captcha'].forEach(id =>
+      document.getElementById(id).style.display = 'none'
+    );
+    ['visitor-name','visitor-email','captcha-ans'].forEach(id =>
+      document.getElementById(id).classList.remove('error')
+    );
 
     const nameVal  = document.getElementById('visitor-name').value.trim();
     const emailVal = document.getElementById('visitor-email').value.trim();
@@ -891,7 +890,6 @@
     const capVal   = parseInt(document.getElementById('captcha-ans').value, 10);
 
     let valid = true;
-
     if (!nameVal) {
       document.getElementById('err-name').style.display = 'block';
       document.getElementById('visitor-name').classList.add('error');
@@ -908,52 +906,40 @@
       newCaptcha();
       valid = false;
     }
-
     if (!valid) return;
 
     visitorName  = nameVal;
     visitorEmail = emailVal;
     visitorCo    = coVal;
 
-    // Disable button while sending
-    const btn = document.getElementById('btn-start-chat');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-
-    // Notify Balaji via FastAPI
-    try {
-      await fetch(`${API}/notify`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: visitorName, email: visitorEmail, company: visitorCo })
-      });
-    } catch(e) { /* silently fail — don't block UX */ }
-
-    // Transition to chat
+    // Open chat immediately — no waiting
     document.getElementById('chat-step-intro').style.display = 'none';
-    const chatStep = document.getElementById('chat-step-chat');
-    chatStep.style.display = 'flex';
-    document.getElementById('chat-user-name-display').textContent = visitorName + (visitorCo ? ` · ${visitorCo}` : '');
+    document.getElementById('chat-step-chat').style.display  = 'flex';
+    document.getElementById('chat-user-name-display').textContent =
+      visitorName + (visitorCo ? ` · ${visitorCo}` : '');
 
-    // Welcome message
-    addBotMsg(`Hi ${visitorName}! 👋 Great to meet you. I'm Balaji's portfolio assistant — ask me anything about his skills, experience, projects, or how to get in touch.`);
-
-    // Show toast
+    addBotMsg(`Hi ${visitorName}! 👋 Great to meet you. Ask me anything about Balaji's skills, experience, or how to get in touch.`);
     showToast();
+    setTimeout(() => document.getElementById('chat-input').focus(), 150);
 
-    setTimeout(() => document.getElementById('chat-input').focus(), 200);
+    // Send notify fire-and-forget — never blocks UI
+    fetch(`${API}/notify`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ name: visitorName, email: visitorEmail, company: visitorCo })
+    }).catch(() => {});
   }
 
+  // ── TOAST ────────────────────────────────────────────────
   function showToast() {
     const t = document.getElementById('chat-toast');
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 3500);
   }
 
-  // ── CHAT MESSAGES ────────────────────────────────────────
+  // ── MESSAGES ─────────────────────────────────────────────
   function addBotMsg(text) {
-    const el = document.getElementById('typing-el');
-    if (el) el.remove();
+    document.getElementById('typing-el')?.remove();
     const msgs = document.getElementById('chat-messages');
     const d = document.createElement('div');
     d.className = 'msg bot';
@@ -963,10 +949,12 @@
   }
 
   function addUserMsg(text) {
+    const initials = visitorName
+      ? visitorName.split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2)
+      : 'You';
     const msgs = document.getElementById('chat-messages');
     const d = document.createElement('div');
     d.className = 'msg user';
-    const initials = visitorName ? visitorName.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2) : 'You';
     d.innerHTML = `<div class="msg-avatar">${initials}</div><div class="msg-bubble">${text}</div>`;
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
@@ -975,12 +963,19 @@
   function showTyping() {
     const msgs = document.getElementById('chat-messages');
     const d = document.createElement('div');
-    d.className = 'msg bot'; d.id = 'typing-el';
-    d.innerHTML = `<div class="msg-avatar">BK</div><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>`;
+    d.className = 'msg bot';
+    d.id = 'typing-el';
+    d.innerHTML = `<div class="msg-avatar">BK</div>
+      <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>`;
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
   }
 
+  // ── SEND MESSAGE ─────────────────────────────────────────
   async function sendMsg() {
     const input = document.getElementById('chat-input');
     const btn   = document.getElementById('chat-send');
@@ -989,14 +984,15 @@
 
     document.getElementById('chat-suggestions').style.display = 'none';
     addUserMsg(text);
-    input.value = ''; btn.disabled = true;
+    input.value  = '';
+    btn.disabled = true;
     showTyping();
 
     try {
       const res  = await fetch(`${API}/chat`, {
-        method: 'POST',
+        method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: text, visitor_name: visitorName })
+        body:    JSON.stringify({ message: text, visitor_name: visitorName })
       });
       const data = await res.json();
       addBotMsg(data.reply || fallback(text));
@@ -1008,16 +1004,18 @@
     }
   }
 
-  // Local fallback replies when API unreachable
+  // ── LOCAL FALLBACK ───────────────────────────────────────
   function fallback(msg) {
     const m = msg.toLowerCase();
-    if (/python|django|flask/.test(m))      return "Balaji is highly proficient in Python — AI automation pipelines he built reduced operational overhead by 40%.";
-    if (/cloud|azure|docker|devops/.test(m)) return "Cloud & DevOps is a core strength — Azure, Docker, Kubernetes, Terraform and Ansible are all in his daily toolkit.";
-    if (/ai|openai|automation|agentic/.test(m)) return "AI-driven automation is a key speciality — Python-based agentic pipelines delivered a 40% ops reduction at Lencarta.";
-    if (/contact|email|hire|available/.test(m)) return "Email Balaji at gkmbala@gmail.com or connect on LinkedIn: linkedin.com/in/balaji-kaliyaperumal-41620192";
-    if (/experience|years|role/.test(m))     return "Balaji has 14+ years of experience. Currently Technology Specialist at Lencarta Ltd in Leeds, UK since December 2020.";
-    if (/stack|skill|tech|language/.test(m)) return "Key stack: Python, PHP, JavaScript, C#, Node.js, React, Adobe Commerce, Azure, Docker, Kubernetes, OpenAI, Power BI.";
-    return `Thanks for asking, ${visitorName}! The API may be warming up. Email Balaji at gkmbala@gmail.com for a quick response.`;
+    if (/python|django|flask/.test(m))          return "Balaji is highly proficient in Python — AI pipelines reduced ops overhead by 40%.";
+    if (/cloud|azure|aws|docker|devops/.test(m)) return "Cloud & DevOps: Azure, AWS, Docker, Kubernetes, Terraform and Ansible.";
+    if (/ai|openai|automation|agentic/.test(m)) return "AI automation pipelines delivered 40% ops reduction at Lencarta using Python and OpenAI.";
+    if (/magento|adobe|ecommerce/.test(m))      return "Adobe Certified Magento Commerce Developer — 10K+ daily transactions, 99.9% uptime.";
+    if (/contact|email|hire|available/.test(m)) return "Email: gkmbala@gmail.com · LinkedIn: linkedin.com/in/balaji-kaliyaperumal-41620192";
+    if (/experience|years|role/.test(m))        return "14+ years experience. Technology Specialist at Lencarta Ltd, Leeds UK since Dec 2020.";
+    if (/skill|stack|tech/.test(m))             return "Python, PHP, JS, C#, Node.js, Adobe Commerce, Azure, Docker, Kubernetes, OpenAI, Power BI.";
+    if (/achieve|impact|result/.test(m))        return "40% ops reduction, 50% faster deployments, 35% revenue increase, 99.9% uptime.";
+    return "Good question! Email Balaji at gkmbala@gmail.com for a detailed answer. 😊";
   }
 
   function sendSug(el) {
@@ -1025,23 +1023,22 @@
     sendMsg();
   }
 
-  // Enter key
+  // ── INIT ─────────────────────────────────────────────────
   document.addEventListener('DOMContentLoaded', () => {
     newCaptcha();
-    document.getElementById('chat-input').addEventListener('keydown', e => {
-      if (e.key === 'Enter') sendMsg();
-    });
-    document.getElementById('captcha-ans').addEventListener('keydown', e => {
-      if (e.key === 'Enter') submitIntro();
-    });
-    document.getElementById('visitor-name').addEventListener('keydown', e => {
-      if (e.key === 'Enter') document.getElementById('visitor-email').focus();
-    });
-    document.getElementById('visitor-email').addEventListener('keydown', e => {
-      if (e.key === 'Enter') document.getElementById('captcha-ans').focus();
-    });
+    document.getElementById('visitor-name')
+      .addEventListener('keydown', e => e.key === 'Enter' && document.getElementById('visitor-email').focus());
+    document.getElementById('visitor-email')
+      .addEventListener('keydown', e => e.key === 'Enter' && document.getElementById('visitor-company').focus());
+    document.getElementById('visitor-company')
+      .addEventListener('keydown', e => e.key === 'Enter' && document.getElementById('captcha-ans').focus());
+    document.getElementById('captcha-ans')
+      .addEventListener('keydown', e => e.key === 'Enter' && submitIntro());
+    document.getElementById('chat-input')
+      .addEventListener('keydown', e => e.key === 'Enter' && sendMsg());
   });
 </script>
+
 
 </body>
 </html>
