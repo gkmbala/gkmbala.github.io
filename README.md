@@ -84,12 +84,6 @@ Senior Developer and Technology Specialist with **14+ years** of experience buil
 - Writing clean, maintainable code for features or bug fixes, often in languages like JavaScript, PHP, or .NET.
 - Participating in Agile/Scrum and resolving issues within existing MySQL and GitHub workflows
 
-## 📊 GitHub Stats
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=gkmbala&show_icons=true&theme=radical)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=gkmbala&layout=compact&theme=radical)
-
 ## 🏆 Key Achievements
 
 - 📈 **40% reduction** in operational overhead through Python-based AI automation
