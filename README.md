@@ -88,7 +88,7 @@ Senior Developer and Technology Specialist with **14+ years** of experience buil
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=gkmbala&show_icons=true&theme=radical)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=gkmbala&layout=compact&theme=radical)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=gkmbala&layout=compact&theme=radical&hide=html,css)
 
 ## 🏆 Key Achievements
 
