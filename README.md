@@ -85,8 +85,8 @@
 ### 🏢 Technology Specialist — Lencarta Ltd
 **December 2020 - Present | Leeds, UK**
 - Leading distributed development teams across multiple time zones
-- Architecting scalable e-commerce platforms with 99.9% uptime
-- Implementing AI-driven automation reducing operational overhead by 40%
+- Architecting scalable BI intelligence layers across SQL, Python, PHP and ASP.NET stacks and e-commerce platforms, with 99.9% uptime
+- Implementing AI-driven python automation reducing operational overhead by 40%
 - Building CI/CD pipelines improving deployment cycles by 50%
 
 ### 💻 Backend Developer / DevOps Engineer — Pinpoint Design
