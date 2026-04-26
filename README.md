@@ -61,11 +61,6 @@ Senior Developer and Technology Specialist with **14+ years** of experience buil
 
 ### AI & Automation
 ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=langchain&logoColor=white)
-![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat&logo=huggingface&logoColor=black)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat&logo=scikitlearn&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat&logo=tensorflow&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)
 ![Azure ML](https://img.shields.io/badge/Azure_ML-0089D6?style=flat&logo=microsoft-azure&logoColor=white)
 ![Agentic AI](https://img.shields.io/badge/Agentic_AI-412991?style=flat&logo=openai&logoColor=white)
 
