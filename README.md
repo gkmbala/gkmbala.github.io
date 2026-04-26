@@ -6,13 +6,13 @@
 
 ## 🚀 About Me
 
-Senior Developer and Technology Specialist with **14+ years** of experience building scalable, production-ready software solutions. I specialize in full-stack development, cloud architecture, and leading distributed engineering teams while staying hands-on with code.
+Senior Developer & Technology Specialist with 14+ years building scalable, production-ready systems across full-stack, cloud, and AI, currently at Lencarta Ltd, Leeds.
 
-- 🔭 Currently working as **Technology Specialist** at **Lencarta Ltd** in Leeds, UK
-- 💡 Passionate about **clean architecture**, **DevOps automation**, and **AI-driven solutions**
-- 🌱 Continuously learning and exploring new technologies in cloud computing and AI
-- 👨‍💻 Love mentoring developers and contributing to high-performing engineering teams
-- 📍 Based in **Leeds, England, United Kingdom**
+🔭 Leading engineering at Lencarta  architecture, cloud infrastructure, and hands-on delivery
+💡 Shipping real AI products: LLM pipelines, agentic workflows, and Power BI intelligence layers across PHP, Python, and ASP.NET stacks
+🌱 Deep in cloud-native patterns, DevOps automation, and production ML  not just experimenting, building
+👨‍💻 Mentor, team builder, and still writing code every day
+📍 Leeds, UK
 
 ## 🛠️ Tech Stack
 
