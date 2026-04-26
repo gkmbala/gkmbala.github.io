@@ -126,7 +126,7 @@
 ## 📚 Education
 
 - **Master of Computer Applications (M.C.A.)** — Anna University, India (2009-2012)
-- **Bachelor Degree, Electrical, Electronic and Communications Science** — A V C COLLLEGE, India (2006-2009)
+- **Bachelor Degree, Electronic and Computer Science** — A V C COLLLEGE, India (2006-2009)
 
 ## 🌟 Core Competencies
 
