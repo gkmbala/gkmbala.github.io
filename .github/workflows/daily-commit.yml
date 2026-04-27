@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: activity-log
           fetch-depth: 0
 
       - name: Write daily log
@@ -30,5 +31,5 @@ jobs:
             echo "Nothing to commit, skipping"
           else
             git commit -m "chore: daily log $(date '+%Y-%m-%d')"
-            git push origin main
+            git push origin activity-log
           fi
