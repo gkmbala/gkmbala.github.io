@@ -5,9 +5,6 @@ on:
     - cron: '0 8 * * *'
   workflow_dispatch:
 
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
 jobs:
   commit:
     runs-on: ubuntu-latest
@@ -17,17 +14,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Commit daily log
+      - name: Write daily log
+        run: echo "Activity log $(date '+%Y-%m-%d %H:%M:%S')" >> activity.log
+
+      - name: Commit and push
         run: |
           git config user.name "gkmbala"
           git config user.email "your-email@example.com"
-          echo "Activity log: $(date '+%Y-%m-%d %H:%M:%S')" >> activity.log
           git add activity.log
-
-          # Only commit if there are actual changes — prevents exit code 1
           if git diff --staged --quiet; then
-            echo "Nothing to commit, skipping."
+            echo "Nothing to commit"
           else
-            git commit -m "chore: daily activity log $(date '+%Y-%m-%d')"
+            git commit -m "chore: daily log $(date '+%Y-%m-%d')"
             git push
           fi
