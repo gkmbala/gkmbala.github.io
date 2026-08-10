@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Balaji Kaliyaperumal — Senior Full Stack Engineer & Tech Lead</title>
-<meta name="description" content="Senior Full Stack Engineer & Technology Specialist with 14+ years building scalable e-commerce and enterprise platforms. Python · AWS · Adobe Commerce · CI/CD · ERP Integrations." />
+<meta name="description" content="Senior Full Stack Engineer & Technology Specialist with 14+ years building scalable e-commerce and enterprise platforms. Python · AI Automation · AWS · Adobe Commerce · CI/CD · ERP Integrations." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
@@ -392,6 +392,38 @@ h2 {
 }
 .ach-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.45; }
 
+/* ── AI SPOTLIGHT ── */
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+.ai-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1.2rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  position: relative; overflow: hidden;
+}
+.ai-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--teal), var(--blue));
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s;
+}
+.ai-card:hover { border-color: rgba(13,148,136,0.3); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.ai-card:hover::before { transform: scaleX(1); }
+.ai-icon { font-size: 1.3rem; margin-bottom: 0.55rem; display: block; }
+.ai-title { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
+.ai-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
+
+@media (max-width: 860px) { .ai-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .ai-grid { grid-template-columns: 1fr; } }
+
 /* ── COMPETENCIES ── */
 .comp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
 .comp-item {
@@ -761,7 +793,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
 <nav>
   <div class="nav-logo">
     <span class="nav-logo-dot"></span>
-    gkmbala.dev
+    <a href="mailto:gkmbala@gmail.com" class="btn btn-outline">gkmbala@gmail.com</a>
   </div>
   <ul class="nav-links">
     <li><a href="#stack">Stack</a></li>
@@ -783,13 +815,15 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
       <h1>Balaji<br><span class="serif-name">Kaliyaperumal</span></h1>
       <p class="hero-title-line">
         // Senior Full Stack Engineer &nbsp;·&nbsp;
-        <span>Tech Lead</span> &nbsp;·&nbsp; Cloud Architect
+        <span> AWS &amp; Adobe Commerce </span> <span> Python &amp; AI Automation</span> &nbsp;·&nbsp; Tech Lead &nbsp;·&nbsp; Cloud
       </p>
       <p class="hero-bio">
-        <strong>14+ years</strong> building production-grade software — from Python microservices and
-        AWS infrastructure to Adobe Commerce platforms processing <strong>100+ daily transactions</strong>.
-        I lead distributed teams and stay hands-on with code, CI/CD pipelines, ERP integrations,
-        and AI-driven automation.
+        <strong>14+ years</strong> building production-grade software — with a strong focus on
+        <strong>Python-driven automation</strong>: agentic AI pipelines integrations, intelligent
+        reporting bots, and workflow automation that replaces manual ops at scale.
+        I architect <strong>Adobe Commerce</strong> platforms on <strong>AWS</strong>, wire them to
+        ERPs and third-party APIs, and ship everything through robust <strong>CI/CD pipelines</strong>
+        — leading distributed teams while staying hands-on with the code.
       </p>
       <div class="hero-actions">
         <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank" class="btn btn-primary">LinkedIn →</a>
@@ -871,11 +905,15 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
       <div class="stack-card">
         <p class="stack-cat"><span class="cat-dot"></span>AI &amp; Automation</p>
         <div class="tags">
-          <span class="tag teal">OpenAI / LLMs</span>
+          <span class="tag teal">OpenAI API</span>
+          <span class="tag teal">LLM Pipelines</span>
           <span class="tag teal">Agentic AI</span>
+          <span class="tag teal">RAG / Embeddings</span>
+          <span class="tag">LangChain</span>
           <span class="tag">Azure ML</span>
           <span class="tag">Power Automate</span>
           <span class="tag">Chatbots</span>
+          <span class="tag">Webhook Automation</span>
         </div>
       </div>
       <div class="stack-card">
@@ -883,9 +921,70 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
         <div class="tags">
           <span class="tag amber">Power BI</span>
           <span class="tag">DAX</span>
+          <span class="tag">Pandas / NumPy</span>
+          <span class="tag">SQLAlchemy</span>
           <span class="tag">Zoho Analytics</span>
-          <span class="tag">ERP Integration</span>
+          <span class="tag">ERP Reporting</span>
           <span class="tag">REST / GraphQL APIs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PYTHON & AI SPOTLIGHT -->
+  <div class="section" id="ai-work">
+    <div class="section-head">
+      <span class="section-tag">02 / python &amp; ai</span>
+      <h2>Python &amp; AI Automation Work</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <span class="ai-icon">🤖</span>
+        <h3 class="ai-title">Agentic AI Pipelines</h3>
+        <p class="ai-desc">Built multi-step agentic workflows using OpenAI function calling and LangChain — agents that autonomously query ERPs, parse order data, take actions, and report outcomes without human intervention.</p>
+        <div class="tags" style="margin-top:0.6rem">
+          <span class="tag teal">OpenAI</span><span class="tag teal">LangChain</span><span class="tag">Python</span><span class="tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="ai-card">
+        <span class="ai-icon">💬</span>
+        <h3 class="ai-title">LLM-Powered Chatbots</h3>
+        <p class="ai-desc">Developed AI chatbots embedded into e-commerce platforms and internal tools — handling customer queries, order lookups, and support triage using RAG over product catalogues and order history.</p>
+        <div class="tags" style="margin-top:0.6rem">
+          <span class="tag teal">RAG</span><span class="tag teal">Embeddings</span><span class="tag">Flask</span><span class="tag">Adobe Commerce</span>
+        </div>
+      </div>
+      <div class="ai-card">
+        <span class="ai-icon">⚙️</span>
+        <h3 class="ai-title">Ops Automation (Python)</h3>
+        <p class="ai-desc">Replaced manual operations with Python scripts and scheduled jobs — automated stock sync, invoice reconciliation, shipment tracking updates, and alert systems, saving the ops team 40% of their time.</p>
+        <div class="tags" style="margin-top:0.6rem">
+          <span class="tag highlight">Python</span><span class="tag">Celery</span><span class="tag">Cron</span><span class="tag">ERP APIs</span>
+        </div>
+      </div>
+      <div class="ai-card">
+        <span class="ai-icon">📊</span>
+        <h3 class="ai-title">AI-Driven Reporting</h3>
+        <p class="ai-desc">Built intelligent reporting pipelines that pull data from MySQL and ERPs, run automated Python analysis, and generate plain-English summaries using LLMs — delivered to Slack, email, or Power BI dashboards.</p>
+        <div class="tags" style="margin-top:0.6rem">
+          <span class="tag amber">Power BI</span><span class="tag">Pandas</span><span class="tag teal">OpenAI</span><span class="tag">SQLAlchemy</span>
+        </div>
+      </div>
+      <div class="ai-card">
+        <span class="ai-icon">🔄</span>
+        <h3 class="ai-title">Power Automate Workflows</h3>
+        <p class="ai-desc">Designed no-code/low-code automation flows with Power Automate connecting Dynamics, SharePoint, and e-commerce backends — automating approval chains, notifications, and cross-system data pushes.</p>
+        <div class="tags" style="margin-top:0.6rem">
+          <span class="tag">Power Automate</span><span class="tag">Microsoft 365</span><span class="tag">Webhooks</span>
+        </div>
+      </div>
+      <div class="ai-card">
+        <span class="ai-icon">🚀</span>
+        <h3 class="ai-title">CI/CD &amp; DevOps Automation</h3>
+        <p class="ai-desc">End-to-end pipeline automation with GitHub Actions and Docker — lint, test, build, deploy in one flow. Python scripts for infrastructure provisioning, environment management, and post-deploy health checks.</p>
+        <div class="tags" style="margin-top:0.6rem">
+          <span class="tag highlight">Docker</span><span class="tag">GitHub Actions</span><span class="tag highlight">AWS</span><span class="tag">Python</span>
         </div>
       </div>
     </div>
@@ -894,7 +993,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- COMPETENCIES -->
   <div class="section" id="competencies">
     <div class="section-head">
-      <span class="section-tag">02 / core</span>
+      <span class="section-tag">03 / core</span>
       <h2>Core Competencies</h2>
       <div class="section-rule"></div>
     </div>
@@ -917,7 +1016,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- EXPERIENCE -->
   <div class="section" id="experience">
     <div class="section-head">
-      <span class="section-tag">03 / experience</span>
+      <span class="section-tag">04 / experience</span>
       <h2>Experience</h2>
       <div class="section-rule"></div>
     </div>
@@ -1038,7 +1137,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- ACHIEVEMENTS -->
   <div class="section" id="achievements">
     <div class="section-head">
-      <span class="section-tag">04 / results</span>
+      <span class="section-tag">05 / results</span>
       <h2>Key Results</h2>
       <div class="section-rule"></div>
     </div>
@@ -1057,7 +1156,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- CERTS + EDU -->
   <div class="section" id="certs">
     <div class="section-head">
-      <span class="section-tag">05 / credentials</span>
+      <span class="section-tag">06 / credentials</span>
       <h2>Certifications &amp; Education</h2>
       <div class="section-rule"></div>
     </div>
@@ -1120,7 +1219,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- CONTACT -->
   <div class="section" id="contact">
     <div class="section-head">
-      <span class="section-tag">06 / contact</span>
+      <span class="section-tag">07 / contact</span>
       <h2>Get in Touch</h2>
       <div class="section-rule"></div>
     </div>
