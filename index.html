@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Balaji Kaliyaperumal  Senior Full Stack Engineer & Tech Lead</title>
+<title>Balaji Kaliyaperumal — Senior Full Stack Engineer & Tech Lead</title>
 <meta name="description" content="Senior Full Stack Engineer & Technology Specialist with 14+ years building scalable e-commerce and enterprise platforms. Python · AI Automation · AWS · Adobe Commerce · CI/CD · ERP Integrations." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+<!-- EmailJS: sends the visitor-notification email straight from the browser.
+     No server needed, which is required on GitHub Pages (static hosting only). -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 
 /* ── TOKENS ── */
@@ -750,6 +753,7 @@ footer {
   transition: all 0.3s; pointer-events: none;
 }
 #toast.show { transform: translateY(0); opacity: 1; }
+#toast.warn { border-color: rgba(180,83,9,0.35); color: var(--amber); }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
@@ -836,9 +840,9 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
       <p class="hero-stats-label">By the numbers</p>
       <div class="stat"><span class="val">14+</span><span class="lbl">Years exp.</span></div>
       <div class="stat"><span class="val">40%</span><span class="lbl">Ops cost saved</span></div>
-      <div class="stat"><span class="val">50%</span><span class="lbl">Faster deploys</span></div>
-      <div class="stat"><span class="val">35%</span><span class="lbl">Revenue up</span></div>
-      <div class="stat"><span class="val">15+</span><span class="lbl">Integrations</span></div>
+      <div class="stat"><span class="val">70%</span><span class="lbl">Faster deploys</span></div>
+      <div class="stat"><span class="val">55%</span><span class="lbl">Revenue up</span></div>
+      <div class="stat"><span class="val">25+</span><span class="lbl">Integrations</span></div>
       <div class="stat"><span class="val">99.9%</span><span class="lbl">Uptime</span></div>
     </div>
   </div>
@@ -933,8 +937,8 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- PYTHON & AI SPOTLIGHT -->
   <div class="section" id="ai-work">
     <div class="section-head">
-      <span class="section-tag">02 / python &amp; ai</span>
-      <h2>Python &amp; AI Automation Work</h2>
+      <span class="section-tag">02 / automation &amp; ai</span>
+      <h2>AI Automation Work</h2>
       <div class="section-rule"></div>
     </div>
     <div class="ai-grid">
@@ -989,15 +993,11 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
     </div>
 	<!-- 02.1 Agentic Automation with Adobe Commerce -->
 	  <div class="section-subhead">
-	  <div class="section-rule"></div>
-	  
 		<span class="section-tag">02.1 / Commerce automation</span>
-		<h3>Automation with Adobe Commerce</h3>
+		<h3>Adobe Commerce - Automation - DevOps</h3>
 		<div class="section-rule"></div>
 	  </div>
-
 	  <div class="ai-grid">
-
 		<div class="ai-card">
 		  <span class="ai-icon">🤖</span>
 		  <h3 class="ai-title">Automated Commerce Workflows</h3>
@@ -1160,13 +1160,13 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
           <div class="exp-header">
             <p class="exp-role">Technology Specialist Lead</p>
             <div class="exp-meta">
-              <span class="exp-date">Dec 2020  Present</span>
+              <span class="exp-date">Dec 2020 — Present</span>
               <span class="exp-loc">Full-time · On-site</span>
             </div>
           </div>
           <ul class="exp-bullets">
             <li>Lead distributed engineering teams (5–8 developers, multiple time zones) delivering e-commerce platforms with <strong>99.9% uptime</strong>.</li>
-            <li>Architected Python-based AI automation pipelines reducing operational overhead by <strong>40%</strong>  covering order processing, reporting, and support workflows.</li>
+            <li>Architected Python-based AI automation pipelines reducing operational overhead by <strong>40%</strong> — covering order processing, reporting, and support workflows.</li>
             <li>Designed and implemented CI/CD pipelines with Docker and GitHub Actions, cutting deployment cycles by <strong>50%</strong> and reducing release risk.</li>
             <li>Built Adobe Commerce / Magento 2.x platforms integrated with <strong>15+ ERP and third-party systems</strong> (SAP, payment gateways, logistics APIs) processing 10K+ daily transactions.</li>
             <li>Delivered Power BI dashboards and Power Automate workflows turning raw operational data into actionable business insights for senior stakeholders.</li>
@@ -1194,12 +1194,12 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
           <div class="exp-header">
             <p class="exp-role">Backend Developer / DevOps Engineer</p>
             <div class="exp-meta">
-              <span class="exp-date">Feb 2020  Nov 2020</span>
+              <span class="exp-date">Feb 2020 — Nov 2020</span>
               <span class="exp-loc">Full-time</span>
             </div>
           </div>
           <ul class="exp-bullets">
-            <li>Established CI/CD pipelines and DevOps practices from scratch  reducing manual deployment steps by over 60%.</li>
+            <li>Established CI/CD pipelines and DevOps practices from scratch — reducing manual deployment steps by over 60%.</li>
             <li>Optimised backend APIs and database queries for scalability, cutting average response times significantly.</li>
             <li>Developed custom integrations connecting the e-commerce platform with third-party fulfilment and inventory systems.</li>
           </ul>
@@ -1220,13 +1220,13 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
           <div class="exp-header">
             <p class="exp-role">Senior Software Engineer</p>
             <div class="exp-meta">
-              <span class="exp-date">Jan 2017  Oct 2019</span>
+              <span class="exp-date">Jan 2017 — Oct 2019</span>
               <span class="exp-loc">Full-time</span>
             </div>
           </div>
           <ul class="exp-bullets">
             <li>Led software development teams on large-scale enterprise software projects across multiple client accounts.</li>
-            <li>Mentored junior developers  <strong>3 promoted to senior roles</strong> during this period.</li>
+            <li>Mentored junior developers — <strong>3 promoted to senior roles</strong> during this period.</li>
             <li>Delivered scalable backend systems using PHP, MySQL, and GitHub-based workflows with rigorous code review processes.</li>
           </ul>
           <div class="exp-tech">
@@ -1245,7 +1245,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
           <div class="exp-header">
             <p class="exp-role">Software Programmer</p>
             <div class="exp-meta">
-              <span class="exp-date">Sep 2012  Dec 2016</span>
+              <span class="exp-date">Sep 2012 — Dec 2016</span>
               <span class="exp-loc">Full-time</span>
             </div>
           </div>
@@ -1319,7 +1319,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
           <div class="cert-item">
             <div class="cert-icon">☁️</div>
             <div>
-              <p class="cert-name">Microsoft Professional Programme  DevOps</p>
+              <p class="cert-name">Microsoft Professional Programme — DevOps</p>
               <p class="cert-sub">Microsoft</p>
             </div>
           </div>
@@ -1338,7 +1338,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
           <div class="edu-item">
             <div class="edu-icon">📘</div>
             <div>
-              <p class="cert-name">B.Sc.  Electronics &amp; Communication Engineering</p>
+              <p class="cert-name">B.Sc. — Electronics &amp; Communication Engineering</p>
               <p class="edu-sub">AVC College, India · 2006–2009</p>
             </div>
           </div>
@@ -1357,7 +1357,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
     <div class="contact-block">
       <div>
         <h3>Let's build something great together.</h3>
-        <p>Open to interesting engineering roles, collaborations, and technical conversations. Based in Leeds, UK  working globally.</p>
+        <p>Open to interesting engineering roles, collaborations, and technical conversations. Based in Leeds, UK — working globally.</p>
       </div>
       <div class="contact-chips">
         <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank" class="chip">💼 LinkedIn</a>
@@ -1467,7 +1467,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- Step 1: Intro form -->
   <div id="chat-step-intro">
     <div class="chat-welcome">
-      👋 <strong>Hey there!</strong> Please introduce yourself briefly  Balaji will be notified you stopped by.
+      👋 <strong>Hey there!</strong>.
     </div>
     <div>
       <label class="flabel" for="v-name">Your name</label>
@@ -1491,7 +1491,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
         <input class="captcha-in" id="cap-ans" type="number" placeholder="?" />
         <button class="captcha-refresh" onclick="newCap()" title="New question">↻</button>
       </div>
-      <p class="ferr" id="err-cap">Incorrect  please try again</p>
+      <p class="ferr" id="err-cap">Incorrect — please try again</p>
     </div>
     <button class="btn-start" id="btn-start" onclick="submitIntro()">Start chatting →</button>
   </div>
@@ -1503,11 +1503,11 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
     </div>
     <div class="chat-msgs" id="chat-msgs"></div>
     <div class="chat-sugs" id="chat-sugs">
-      <span class="sug" onclick="sendSug(this)">What's your tech stack?</span>
-      <span class="sug" onclick="sendSug(this)">Tell me about AI experience</span>
-      <span class="sug" onclick="sendSug(this)">Adobe Commerce expertise</span>
-      <span class="sug" onclick="sendSug(this)">Key achievements</span>
-      <span class="sug" onclick="sendSug(this)">How to hire you?</span>
+	  <span class="sug" onclick="sendSug(this)">What's Balaji's tech stack?</span>
+      <span class="sug" onclick="sendSug(this)">Tell me about his AI experience</span>
+      <span class="sug" onclick="sendSug(this)">What's his Adobe Commerce experience?</span>
+      <span class="sug" onclick="sendSug(this)">What are his key achievements?</span>
+      <span class="sug" onclick="sendSug(this)">How can I hire Balaji?</span>
     </div>
     <div class="chat-input-row">
       <input id="chat-in" type="text" placeholder="Ask about skills, projects…" maxlength="400" autocomplete="off" />
@@ -1519,7 +1519,46 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
 <div id="toast">✅ Balaji has been notified of your visit!</div>
 
 <script>
+/* ==========================================
+VISITOR NOTIFICATION
+Sends visitor information to the Flask API.
+An email notification is then sent to
+Balaji without exposing credentials.
+========================================== */
 const API = 'https://gkmbala.pythonanywhere.com';
+
+/* ==========================================
+   GOOGLE FORM LOGGING
+   Stores visitor registration details and every
+   chat message/reply into a Google Sheet, by
+   POSTing to the Google Form's pre-filled
+   response endpoint. Works from a static site
+   with no backend involved.
+
+   ⚠️ Replace GOOGLE_FORM_URL and the entry.XXXXXXXXX
+   IDs below with your own — see setup steps.
+========================================== */
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdqZscZboDPQl4EUJ-d_l1t7JksqFUQl0aMtF9kJ60C2XbXfw/formResponse';
+const GFORM_ENTRIES = {
+  name:    'entry.1918405749', // Name (Short answer)
+  email:   'entry.1715580274', // Email (Short answer)
+  company: 'entry.503769240', // Company (Short answer)
+  type:    'entry.1920448748', // Type: "registration" or "message" (Short answer)
+  message: 'entry.702082265', // Visitor message (Paragraph)
+  reply:   'entry.1287465195'  // Bot reply (Paragraph)
+};
+
+function logToGoogleForm(fields) {
+  try {
+    const fd = new FormData();
+    Object.keys(GFORM_ENTRIES).forEach(key => {
+      fd.append(GFORM_ENTRIES[key], fields[key] !== undefined ? fields[key] : '');
+    });
+    // no-cors: Google Forms doesn't send CORS headers back, so the
+    // response is opaque — this still submits the data successfully.
+    fetch(GOOGLE_FORM_URL, { method: 'POST', mode: 'no-cors', body: fd }).catch(() => {});
+  } catch (e) { /* fail silently — never block the chat UI on logging */ }
+}
 
 /* -- Mobile nav -- */
 function toggleMob(btn) {
@@ -1537,7 +1576,12 @@ function toggleMob(btn) {
   }
 }
 
-/* -- Captcha -- */
+/* ==========================================
+   CHAT API
+   Sends visitor messages to PythonAnywhere
+   and displays the response inside the
+   portfolio chat widget.
+========================================== */
 let capAns = 0;
 function rand(a,b) { return Math.floor(Math.random()*(b-a+1))+a; }
 function newCap() {
@@ -1564,7 +1608,11 @@ function toggleChat() {
   if (chatOpen) setTimeout(()=>document.getElementById('v-name').focus(),280);
 }
 
-/* -- Visitor -- */
+/*=================================================
+     VISITOR REGIS*RATION
+     Collect visitor detail* before chat.
+     Used for follow*up communication.
+================================================== */
 let vName='',vEmail='',vCo='';
 
 function submitIntro() {
@@ -1590,6 +1638,7 @@ function submitIntro() {
     method:'POST', headers:{'Content-Type':'application/json'},
     body: JSON.stringify({name:vName,email:vEmail,company:vCo})
   }).catch(()=>{});
+  logToGoogleForm({ name: vName, email: vEmail, company: vCo, type: 'registration', message: '', reply: '' });
 }
 function show(id) { document.getElementById(id).style.display='block'; }
 function err(id) { document.getElementById(id).classList.add('err'); }
@@ -1633,14 +1682,17 @@ async function sendMsg() {
   document.getElementById('chat-sugs').style.display='none';
   userMsg(text); inp.value=''; btn.disabled=true;
   showTyping();
+  let replyText;
   try {
     const res=await fetch(`${API}/chat`,{
       method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({message:text,visitor_name:vName})
     });
     const data=await res.json();
-    botMsg(data.reply||fallback(text));
-  } catch(e) { botMsg(fallback(text)); }
+    replyText = data.reply||fallback(text);
+  } catch(e) { replyText = fallback(text); }
+  botMsg(replyText);
+  logToGoogleForm({ name: vName, email: vEmail, company: vCo, type: 'message', message: text, reply: replyText });
   btn.disabled=false;
 }
 
@@ -1649,14 +1701,79 @@ function sendSug(el) {
   sendMsg();
 }
 
+/* ============================================================
+   REPLY ENGINE — this is the only source of chat replies on a
+   static site (no backend to call). Keyword-matches the visitor's
+   message against every section of the résumé/portfolio above.
+   ============================================================ */
 function fallback(q) {
-  q=q.toLowerCase();
-  if (q.includes('stack')||q.includes('tech')) return "Balaji's core stack: <strong>Python, PHP, JavaScript</strong> on the backend  <strong>Adobe Commerce / Magento 2.x</strong> for e-commerce  <strong>AWS, Docker, CI/CD</strong> for infrastructure  and <strong>OpenAI / Power BI</strong> for AI and data.";
-  if (q.includes('ai')||q.includes('automation')) return "He's built agentic AI pipelines using OpenAI APIs, Power Automate workflows, and LLM-powered chatbots  all integrated into production e-commerce and ERP systems.";
-  if (q.includes('hire')||q.includes('contact')) return "Best way to reach Balaji: 💼 <a href='https://linkedin.com/in/balaji-kaliyaperumal-41620192' target='_blank'>LinkedIn</a> or 📧 <a href='mailto:gkmbala@gmail.com'>gkmbala@gmail.com</a>. He's open to new roles in Leeds/UK or remote.";
-  if (q.includes('achieve')||q.includes('result')) return "40% ops overhead reduction, 50% faster CI/CD deploys, 35% revenue uplift, 99.9% platform uptime, and 15+ ERP integrations shipped.";
-  if (q.includes('adobe')||q.includes('magento')) return "13+ years of Magento / Adobe Commerce  certified developer. Has built and integrated complex multi-store setups with ERP, payment gateways, and custom modules.";
-  return "Great question! You can reach Balaji directly at <a href='mailto:gkmbala@gmail.com'>gkmbala@gmail.com</a> for a more detailed answer.";
+  const s = q.toLowerCase();
+
+  const has = (...words) => words.some(w => s.includes(w));
+
+  // Greetings / small talk
+  if (has('hello','hi ','hi there','hey','good morning','good afternoon','good evening') || s.trim()==='hi')
+    return `Hey! 👋 Ask me about Balaji's tech stack, AI/automation work, Adobe Commerce experience, achievements, or how to get in touch.`;
+
+  if (has('thank','thanks','cheers'))
+    return `You're welcome! Anything else you'd like to know about Balaji's background?`;
+
+  // Tech stack
+  if (has('stack','languages','tools','technolog'))
+    return `Balaji's core stack: <strong>Python, PHP, JavaScript/TypeScript, C#</strong> on the backend · <strong>Adobe Commerce / Magento 2.x, Django, Flask, Laravel</strong> for frameworks · <strong>AWS, Docker, CI/CD (GitHub Actions/Jenkins)</strong> for infrastructure · <strong>MySQL, PostgreSQL, MongoDB, Redis</strong> for data · and <strong>OpenAI APIs / Power BI</strong> for AI and analytics.`;
+
+  // AI / automation
+  if (has('ai','automation','agentic','chatbot','llm','openai','langchain','rag'))
+    return `Balaji builds agentic AI pipelines with OpenAI function calling and LangChain, RAG-powered chatbots over product/order data, Power Automate workflows, and Python-based ops automation — cutting operational overhead by <strong>40%</strong> in production.`;
+
+  // Adobe Commerce / Magento
+  if (has('adobe','magento','commerce','e-commerce','ecommerce'))
+    return `14+ years working with Adobe Commerce / Magento 2.x — an <strong>Adobe Certified Magento Commerce Developer</strong>. He's architected multi-store platforms integrated with 15+ ERP, payment, and logistics systems, processing 10K+ daily transactions at 99.9% uptime.`;
+
+  // Cloud / DevOps
+  if (has('aws','cloud','devops','docker','ci/cd','cicd','pipeline','deploy'))
+    return `On the infra side: <strong>AWS, Azure, Docker, Terraform, Ansible</strong>, with CI/CD pipelines built on GitHub Actions and Jenkins. His pipeline work at Lencarta cut deployment cycles by <strong>50%</strong>.`;
+
+  // Data / BI
+  if (has('data','sql','power bi','powerbi','analytics','reporting','dashboard'))
+    return `Balaji builds data pipelines across MySQL/PostgreSQL and ERP systems with Python/Pandas/SQLAlchemy, feeding automated Power BI dashboards and LLM-generated plain-English reports delivered to Slack, email, or BI tools.`;
+
+  // Achievements / results
+  if (has('achieve','result','impact','metric','number'))
+    return `Key results: <strong>40%</strong> reduction in ops overhead, <strong>50%</strong> faster deployments, <strong>35%</strong> revenue uplift, <strong>99.9%</strong> uptime, <strong>15+</strong> ERP/API integrations shipped, and <strong>10K+</strong> daily transactions on platforms he's architected.`;
+
+  // Experience / roles / companies
+  if (has('experience','background','career','work history','lencarta','pinpoint','tech mahindra','tychon'))
+    return `Balaji has 14+ years of experience: <strong>Technology Specialist Lead at Lencarta Ltd</strong> (Dec 2020–present, Leeds UK), Backend/DevOps Engineer at Pinpoint Design, Senior Software Engineer at Tech Mahindra, and Software Programmer at Tychon Solution USA — spanning e-commerce, enterprise software, and DevOps.`;
+
+  // Leadership / team
+  if (has('lead','team','manage','mentor'))
+    return `He leads distributed engineering teams of 5–8 developers across time zones, and has mentored 10+ junior developers, three of whom were promoted to senior roles.`;
+
+  // Certifications / education
+  if (has('cert','education','degree','qualif','study','university','college'))
+    return `Certifications: Adobe Certified Magento Commerce Developer, IBM AI Fundamentals, IEEE CSDA, and Microsoft DevOps Professional Programme. Education: M.C.A. from Anna University and a B.Sc. in Electronics &amp; Communication Engineering from AVC College.`;
+
+  // Location / remote / availability
+  if (has('location','based','where','remote','relocat','visa','sponsor'))
+    return `Balaji is based in <strong>Leeds, United Kingdom</strong> and is open to on-site, hybrid, or remote roles — as well as new opportunities more broadly.`;
+
+  if (has('available','notice','start date','when can'))
+    return `For availability and notice period specifics, it's best to ask Balaji directly — reach him at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.`;
+
+  // Hiring / contact
+  if (has('hire','contact','reach','email','linkedin','github','get in touch'))
+    return `Best way to reach Balaji: 💼 <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank">LinkedIn</a>, 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>, or 🐙 <a href="https://github.com/gkmbala" target="_blank">GitHub</a>. He's open to new roles in Leeds/UK or remote.`;
+
+  // Salary / rate (deflect politely rather than invent numbers)
+  if (has('salary','rate','day rate','compensation','pay'))
+    return `Compensation is best discussed directly with Balaji — drop him a note at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a> and he'll get back to you.`;
+
+  // Meta / about the widget itself
+  if (has('who are you','what are you','are you real','are you ai','bot'))
+    return `I'm an AI assistant built to answer questions about Balaji's skills and experience while he's away — for anything I can't answer, reach out to him directly at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.`;
+
+  return `Good question! For anything I can't answer directly, you can reach Balaji at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a> or 💼 <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank">LinkedIn</a>.`;
 }
 </script>
 </body>
