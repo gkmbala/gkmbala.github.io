@@ -3,807 +3,621 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Balaji Kaliyaperumal — Senior Full Stack Engineer & Tech Lead</title>
-<meta name="description" content="Senior Full Stack Engineer & Technology Specialist with 14+ years building scalable e-commerce and enterprise platforms. Python · AI Automation · AWS · Adobe Commerce · CI/CD · ERP Integrations." />
+<title>Balaji Kaliyaperumal — Senior Full-Stack Engineer & Tech Lead</title>
+<meta name="description" content="Senior Full-Stack Engineer & Technology Specialist with 14+ years building Adobe Commerce platforms, ERP integrations, and Python-driven AI automation. Based in Leeds, UK." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
-<!-- EmailJS: sends the visitor-notification email straight from the browser.
-     No server needed, which is required on GitHub Pages (static hosting only). -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
 
-/* ── TOKENS ── */
+/* ============ TOKENS ============ */
 :root {
-  --white: #ffffff;
-  --bg:    #f8f9fb;
-  --bg2:   #f2f4f8;
-  --surface: #ffffff;
-  --border:  #e2e6ef;
-  --border-mid: #cdd3e0;
+  --paper:      #F5F5F0;
+  --paper-2:    #ECECE4;
+  --white:      #FFFFFF;
+  --ink:        #152f52;
+  --ink-2:      #3A3F45;
+  --ink-3:      #6E737B;
+  --line:       #DBDBD2;
+  --line-2:     #C7C7BB;
 
-  --ink:    #0e1117;
-  --ink2:   #2c3347;
-  --muted:  #5a6278;
-  --subtle: #8b93a8;
+  --signal:      #1E8E5A;
+  --signal-deep: #146341;
+  --signal-dim:  #E3F0E8;
 
-  --blue:   #1a56db;
-  --blue-lt:#e8eeff;
-  --blue-md:#3b6fd4;
-  --indigo: #4c3fd4;
-  --teal:   #0d9488;
-  --teal-lt:#e6faf8;
-  --amber:  #b45309;
-  --amber-lt:#fef3c7;
-  --rose:   #be123c;
+  --amber:      #A9690C;
+  --amber-dim:  #F7EDDB;
 
-  --mono: 'JetBrains Mono', monospace;
-  --sans: 'Inter', system-ui, sans-serif;
-  --serif: 'Lora', Georgia, serif;
+  --dark-bg:     #152f52;
+  --dark-bg-2:   #f2f5f8;
+  --dark-border: #2B3036;
+  --dark-text:   #ECECE5;
+  --dark-muted:  #888E95;
+  --dark-amber:  #E3A83D;
+  --dark-green:  #55D69B;
 
-  --radius: 10px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow:    0 4px 12px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-md: 0 8px 24px rgba(0,0,0,0.09), 0 4px 8px rgba(0,0,0,0.05);
+  --display: 'Space Grotesk', system-ui, sans-serif;
+  --sans:    'IBM Plex Sans', system-ui, sans-serif;
+  --mono:    'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+
+  --radius: 6px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 15px; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
 body {
-  background: var(--bg);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  line-height: 1.65;
-  min-height: 100vh;
+  line-height: 1.6;
+  font-size: 15.5px;
   -webkit-font-smoothing: antialiased;
 }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--signal); outline-offset: 2px; }
+img { max-width: 100%; display: block; }
 
-/* ── NAV ── */
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: 2.5rem; padding-right: 2.5rem; }
+
+/* ============ STATUS RIBBON ============ */
+.ribbon {
+  background: var(--dark-bg);
+  color: var(--dark-muted);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.ribbon-left { display: flex; align-items: center; gap: 0.5rem; }
+.ribbon-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--dark-green);
+  flex-shrink: 0;
+  animation: blink-dot 2.4s ease-in-out infinite;
+}
+@keyframes blink-dot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.ribbon strong { color: var(--dark-text); font-weight: 600; letter-spacing: 0.04em; }
+.ribbon-sep { color: var(--dark-border); }
+
+/* ============ NAV ============ */
 nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(245,245,240,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
   padding: 0 2.5rem;
   display: flex; align-items: center; justify-content: space-between;
-  height: 58px;
+  height: 56px;
 }
 .nav-logo {
   font-family: var(--mono);
   font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--ink2);
-  letter-spacing: -0.01em;
-  display: flex; align-items: center; gap: 0.5rem;
+  color: var(--ink-2);
+  display: flex; align-items: baseline; gap: 1px;
 }
-.nav-logo-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--blue);
-  animation: pulse-dot 2.5s ease-in-out infinite;
+.nav-logo .path { color: var(--ink-3); }
+.nav-logo .cursor {
+  display: inline-block; width: 7px; height: 1.1em;
+  background: var(--signal); margin-left: 2px;
+  animation: blink-dot 1.1s steps(1) infinite;
 }
-@keyframes pulse-dot {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:0.4; transform:scale(0.8); }
-}
-.nav-links { display: flex; gap: 0; list-style: none; }
+.nav-links { display: flex; gap: 0.2rem; list-style: none; }
 .nav-links a {
   font-family: var(--mono);
   font-size: 0.68rem;
-  color: var(--muted);
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
   text-decoration: none;
-  padding: 0.35rem 0.8rem;
-  border-radius: 6px;
-  letter-spacing: 0.03em;
-  transition: all 0.15s;
+  padding: 0.4rem 0.75rem;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
 }
-.nav-links a:hover { background: var(--blue-lt); color: var(--blue); }
+.nav-links a:hover { color: var(--signal-deep); background: var(--signal-dim); }
 .nav-cta {
   font-family: var(--mono);
   font-size: 0.68rem;
-  letter-spacing: 0.03em;
-  padding: 0.42rem 1rem;
-  background: var(--blue);
-  color: #fff;
-  border-radius: 6px;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.15s, transform 0.15s;
+  transition: background 0.15s;
 }
-.nav-cta:hover { background: var(--blue-md); transform: translateY(-1px); }
+.nav-cta:hover { background: var(--signal-deep); }
 .hamburger {
   display: none; flex-direction: column; gap: 4px;
   background: none; border: none; cursor: pointer; padding: 4px;
 }
-.hamburger span { width: 22px; height: 2px; background: var(--muted); border-radius: 2px; }
+.hamburger span { width: 20px; height: 2px; background: var(--ink-2); }
 
-/* ── HERO ── */
-.hero {
-  max-width: 1040px; margin: 0 auto;
-  padding: 4.5rem 2.5rem 3.5rem;
-}
-.hero-inner {
+/* ============ HERO ============ */
+.hero { padding: 4rem 0 3.5rem; }
+.hero-grid {
   display: grid;
-  grid-template-columns: 1fr 260px;
-  gap: 4rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
   align-items: start;
 }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--teal);
-  background: var(--teal-lt);
-  border: 1px solid rgba(13,148,136,0.2);
-  padding: 0.22rem 0.75rem;
-  border-radius: 20px;
-  margin-bottom: 1.1rem;
-}
-.hero-badge::before {
-  content:''; width:6px; height:6px; border-radius:50%;
-  background: var(--teal);
-  animation: pulse-dot 2s infinite;
-}
-h1 {
-  font-family: var(--sans);
-  font-weight: 700;
-  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-bottom: 0.5rem;
-}
-h1 .serif-name {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--blue);
-}
-.hero-title-line {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.04em;
-  margin-bottom: 1.3rem;
-}
-.hero-title-line span { color: var(--blue); font-weight: 600; }
-.hero-bio {
-  font-size: 0.96rem;
-  color: var(--muted);
-  max-width: 520px;
-  line-height: 1.75;
-  margin-bottom: 1.6rem;
-  font-weight: 400;
-}
-.hero-bio strong { color: var(--ink2); font-weight: 600; }
-.hero-actions { display: flex; gap: 0.65rem; flex-wrap: wrap; }
-.btn {
+.eyebrow {
   font-family: var(--mono);
   font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  padding: 0.5rem 1.1rem;
-  border-radius: 7px;
+  letter-spacing: 0.05em;
+  color: var(--signal-deep);
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  margin-bottom: 1.1rem;
+}
+.eyebrow::before { content: '●'; font-size: 0.5rem; color: var(--signal); }
+
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 0.9rem;
+}
+.role-line {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.focus-line {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--signal-deep);
+  margin-bottom: 1.5rem;
+}
+.hero-bio { max-width: 540px; margin-bottom: 1.7rem; }
+.hero-bio p { color: var(--ink-2); font-size: 0.95rem; line-height: 1.75; margin-bottom: 0.85rem; }
+.hero-bio strong { color: var(--ink); font-weight: 600; }
+
+.hero-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.btn {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius);
   text-decoration: none;
   display: inline-flex; align-items: center; gap: 0.4rem;
   font-weight: 600;
   transition: all 0.15s;
-  border: none; cursor: pointer;
+  border: 1px solid transparent; cursor: pointer;
 }
-.btn-primary { background: var(--blue); color: #fff; box-shadow: var(--shadow-sm); }
-.btn-primary:hover { background: var(--blue-md); transform: translateY(-1px); box-shadow: var(--shadow); }
-.btn-outline { background: var(--white); color: var(--ink2); border: 1px solid var(--border-mid); box-shadow: var(--shadow-sm); }
-.btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-lt); }
-.btn-ghost { background: var(--bg2); color: var(--muted); border: 1px solid var(--border); }
-.btn-ghost:hover { color: var(--ink2); background: var(--bg); border-color: var(--border-mid); }
+.btn-primary { background: var(--ink); color: var(--paper); }
+.btn-primary:hover { background: var(--signal-deep); transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--ink-2); border-color: var(--line-2); }
+.btn-outline:hover { border-color: var(--signal); color: var(--signal-deep); background: var(--signal-dim); }
+.btn-ghost { background: var(--paper-2); color: var(--ink-3); border-color: var(--paper-2); }
+.btn-ghost:hover { color: var(--ink); border-color: var(--line-2); }
 
-/* Hero stats panel */
-.hero-stats {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: 1.4rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
+/* Terminal readout panel */
+.term {
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(20,23,27,0.18);
 }
-.hero-stats-label {
-  grid-column: 1 / -1;
-  font-family: var(--mono);
-  font-size: 0.58rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--subtle);
-  margin-bottom: 0.2rem;
+.term-bar {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--dark-border);
+  background: var(--dark-bg-2);
 }
-.stat {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.75rem 0.85rem;
-  text-align: center;
-  transition: border-color 0.15s;
-}
-.stat:hover { border-color: var(--blue); }
-.stat .val {
-  font-family: var(--mono);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--blue);
-  display: block;
-  line-height: 1.1;
-  margin-bottom: 0.25rem;
-}
-.stat .lbl {
-  font-size: 0.62rem;
-  color: var(--subtle);
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
+.term-dots { display: flex; gap: 0.35rem; }
+.term-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--dark-border); }
+.term-title { font-family: var(--mono); font-size: 0.65rem; color: var(--dark-muted); letter-spacing: 0.04em; }
+.term-body { padding: 1.1rem 1.1rem 1.2rem; font-family: var(--mono); font-size: 0.76rem; }
+.term-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.32rem 0; border-bottom: 1px dashed var(--dark-border); }
+.term-row:last-child { border-bottom: none; }
+.term-key { color: var(--dark-muted); }
+.term-val { color: var(--dark-text); text-align: right; }
+.term-val.pass { color: var(--dark-green); font-weight: 600; }
+.term-val.amber { color: var(--dark-amber); }
 
-/* ── LAYOUT ── */
-.container { max-width: 1040px; margin: 0 auto; padding: 0 2.5rem 5rem; }
-
-/* ── SECTION ── */
-.section { padding: 3rem 0 0; }
-.section-head { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.4rem; }
-.section-tag {
+/* ============ SECTIONS ============ */
+.section { padding: 3.6rem 0 0; }
+.section-head { margin-bottom: 1.6rem; }
+.section-path {
   font-family: var(--mono);
-  font-size: 0.6rem;
-  color: var(--blue);
-  background: var(--blue-lt);
-  border: 1px solid rgba(26,86,219,0.15);
-  padding: 0.15rem 0.6rem;
-  border-radius: 4px;
-  letter-spacing: 0.06em;
-  font-weight: 600;
+  font-size: 0.68rem;
+  color: var(--ink-3);
+  margin-bottom: 0.45rem;
 }
+.section-path .sep { color: var(--line-2); margin: 0 0.15rem; }
 h2 {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: -0.02em;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
-.section-rule { flex: 1; height: 1px; background: var(--border); }
+.section-dek { font-size: 0.86rem; color: var(--ink-3); margin-top: 0.4rem; max-width: 560px; }
 
-/* ── STACK ── */
-.stack-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
-.stack-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem 1.1rem;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+/* ---- stack manifest (dark config block) ---- */
+.manifest {
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  overflow: hidden;
 }
-.stack-card:hover { border-color: var(--blue); box-shadow: var(--shadow); transform: translateY(-2px); }
-.stack-cat {
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 0.6rem;
-  display: flex; align-items: center; gap: 0.4rem;
+.manifest-bar {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--dark-border);
+  background: var(--dark-bg-2);
 }
-.stack-cat .cat-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); flex-shrink: 0; }
-.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
-.tag {
-  font-family: var(--mono);
-  font-size: 0.63rem;
-  padding: 0.2rem 0.55rem;
-  border-radius: 5px;
-  background: var(--bg2);
-  color: var(--muted);
-  border: 1px solid var(--border);
-  transition: all 0.12s;
-  font-weight: 500;
-}
-.tag:hover { background: var(--blue-lt); border-color: rgba(26,86,219,0.2); color: var(--blue); }
-.tag.highlight { background: var(--blue-lt); color: var(--blue); border-color: rgba(26,86,219,0.2); font-weight: 600; }
-.tag.teal { background: var(--teal-lt); color: var(--teal); border-color: rgba(13,148,136,0.2); }
-.tag.amber { background: var(--amber-lt); color: var(--amber); border-color: rgba(180,83,9,0.2); }
+.manifest-dots { display: flex; gap: 0.35rem; }
+.manifest-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--dark-border); }
+.manifest-title { font-family: var(--mono); font-size: 0.65rem; color: var(--dark-muted); }
+.manifest-body { padding: 1.1rem 1.3rem 1.3rem; font-family: var(--mono); font-size: 0.82rem; overflow-x: auto; }
+.manifest-line { display: flex; gap: 1rem; padding: 0.3rem 0; }
+.manifest-ln { color: #454B52; width: 1.2rem; flex-shrink: 0; text-align: right; user-select: none; }
+.manifest-key { color: var(--dark-green); flex-shrink: 0; min-width: 90px; }
+.manifest-val { color: var(--dark-text); }
+.manifest-val .dim { color: var(--dark-muted); }
 
-/* ── EXPERIENCE ── */
-.exp-list { display: flex; flex-direction: column; gap: 1rem; }
-.exp-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.4rem 1.5rem;
-  box-shadow: var(--shadow-sm);
+/* ---- automation changelog ---- */
+.log-list { display: flex; flex-direction: column; }
+.log-item {
   display: grid;
   grid-template-columns: 3px 1fr;
-  gap: 0 1.2rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
-  position: relative;
+  gap: 0 1.3rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--line);
 }
-.exp-card:hover { border-color: var(--border-mid); box-shadow: var(--shadow); }
-.exp-left-bar {
-  width: 3px;
-  border-radius: 3px;
-  background: linear-gradient(to bottom, var(--blue) 0%, transparent 100%);
-  align-self: stretch;
-}
-.exp-company {
+.log-item:first-child { padding-top: 0; }
+.log-item:last-child { border-bottom: none; }
+.log-rule { background: var(--line-2); border-radius: 2px; transition: background 0.15s; }
+.log-item:hover .log-rule { background: var(--signal); }
+.log-head { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.4rem; }
+.log-title { font-family: var(--display); font-weight: 600; font-size: 1.02rem; color: var(--ink); }
+.log-tag { font-family: var(--mono); font-size: 0.62rem; color: var(--signal-deep); background: var(--signal-dim); padding: 0.14rem 0.5rem; border-radius: 4px; letter-spacing: 0.03em; }
+.log-desc { font-size: 0.87rem; color: var(--ink-3); line-height: 1.7; max-width: 640px; margin-bottom: 0.6rem; }
+.log-stack { display: flex; flex-wrap: wrap; gap: 0.35rem; font-family: var(--mono); font-size: 0.66rem; }
+.log-stack span { color: var(--ink-3); padding: 0.12rem 0.5rem; border: 1px solid var(--line-2); border-radius: 4px; }
+
+.subgroup-label {
   font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--blue);
-  font-weight: 600;
-  margin-bottom: 0.2rem;
+  color: var(--ink-3);
+  margin: 2.2rem 0 0.4rem;
 }
-.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem; }
-.exp-role { font-size: 1rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
-.exp-meta { text-align: right; }
-.exp-date { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); }
-.exp-loc { font-family: var(--mono); font-size: 0.58rem; color: var(--subtle); }
-.exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-.exp-bullets li {
-  font-size: 0.87rem;
-  color: var(--muted);
-  padding-left: 1.1rem;
-  position: relative;
-  line-height: 1.65;
-}
-.exp-bullets li::before {
-  content: '▸';
-  position: absolute; left: 0;
-  color: var(--blue);
-  font-size: 0.58rem;
-  top: 0.15rem;
-}
-.exp-bullets li strong { color: var(--ink2); font-weight: 600; }
-.exp-tech { margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.subgroup-label:first-child { margin-top: 0; }
 
-/* ── ACHIEVEMENTS ── */
-.ach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
-.ach-card {
+/* ---- competencies ---- */
+.comp-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.comp-chip {
+  font-family: var(--mono); font-size: 0.72rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line-2);
+  border-radius: 20px;
+  color: var(--ink-2);
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.1rem 1rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-  position: relative; overflow: hidden;
 }
-.ach-card::after {
-  content: '';
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--blue);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.2s;
-}
-.ach-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.ach-card:hover::after { transform: scaleX(1); }
-.ach-icon { font-size: 1.1rem; margin-bottom: 0.4rem; display: block; }
-.ach-val {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 1.4rem;
-  color: var(--ink);
-  display: block;
-  line-height: 1.1;
-  margin-bottom: 0.3rem;
-  letter-spacing: -0.02em;
-}
-.ach-desc { font-size: 0.72rem; color: var(--muted); line-height: 1.45; }
 
-/* ── AI SPOTLIGHT ── */
-.ai-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.75rem;
-}
-.ai-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.2rem 1.2rem 1.1rem;
-  box-shadow: var(--shadow-sm);
-  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
-  position: relative; overflow: hidden;
-}
-.ai-card::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--teal), var(--blue));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.2s;
-}
-.ai-card:hover { border-color: rgba(13,148,136,0.3); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.ai-card:hover::before { transform: scaleX(1); }
-.ai-icon { font-size: 1.3rem; margin-bottom: 0.55rem; display: block; }
-.ai-title { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
-.ai-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.65; }
-
-@media (max-width: 860px) { .ai-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .ai-grid { grid-template-columns: 1fr; } }
-
-/* ── COMPETENCIES ── */
-.comp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
-.comp-item {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  padding: 0.6rem 0.85rem;
-  font-size: 0.78rem;
-  color: var(--muted);
-  display: flex; align-items: center; gap: 0.5rem;
-  transition: all 0.15s;
-  box-shadow: var(--shadow-sm);
-}
-.comp-item:hover { background: var(--blue-lt); color: var(--blue); border-color: rgba(26,86,219,0.2); }
-.comp-item::before {
-  content: '';
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--blue-md);
-  flex-shrink: 0;
-  transition: background 0.15s;
-}
-.comp-item:hover::before { background: var(--blue); }
-
-/* ── CERTS & EDU ── */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.col-heading {
-  font-family: var(--mono);
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--subtle);
-  margin-bottom: 0.5rem;
-}
-.cert-list, .edu-list { display: flex; flex-direction: column; gap: 0.5rem; }
-.cert-item, .edu-item {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.85rem 1rem;
-  display: flex; align-items: center; gap: 0.8rem;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.15s;
-}
-.cert-item:hover { border-color: var(--blue); background: var(--blue-lt); }
-.edu-item:hover { border-color: var(--teal); background: var(--teal-lt); }
-.cert-icon, .edu-icon {
-  width: 36px; height: 36px;
+/* ---- experience: git log ---- */
+.commit-list { display: flex; flex-direction: column; gap: 1rem; }
+.commit {
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
   border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem; flex-shrink: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  overflow: hidden;
 }
-.cert-icon { background: var(--blue-lt); border: 1px solid rgba(26,86,219,0.15); }
-.edu-icon { background: var(--teal-lt); border: 1px solid rgba(13,148,136,0.2); }
-.cert-name { font-size: 0.8rem; font-weight: 600; color: var(--ink2); line-height: 1.4; }
-.cert-sub, .edu-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--subtle); margin-top: 0.12rem; }
+.commit-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.55rem 1.1rem;
+  background: var(--dark-bg-2);
+  border-bottom: 1px solid var(--dark-border);
+  flex-wrap: wrap; gap: 0.4rem;
+}
+.commit-hash { color: var(--dark-amber); font-weight: 600; }
+.commit-hash::before { content: 'commit '; color: var(--dark-muted); font-weight: 400; }
+.commit-meta { color: var(--dark-muted); font-size: 0.74rem; }
+.commit-body { padding: 1rem 1.1rem 1.15rem; }
+.commit-subject { color: var(--dark-text); font-family: var(--display); font-weight: 600; font-size: 1rem; margin-bottom: 0.85rem; }
+.commit-subject .company { color: var(--dark-green); }
+.commit-diff { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.9rem; }
+.commit-diff li { list-style: none; color: #C7CBCF; font-size: 0.78rem; line-height: 1.6; padding-left: 1.2rem; position: relative; }
+.commit-diff li::before { content: '+'; position: absolute; left: 0; color: var(--dark-green); font-weight: 700; }
+.commit-diff li strong { color: var(--dark-text); }
+.commit-files { color: var(--dark-muted); font-size: 0.68rem; padding-top: 0.75rem; border-top: 1px dashed var(--dark-border); }
+.commit-files span { color: #9FA5AB; }
 
-/* ── CONTACT ── */
-.contact-block {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow);
-  padding: 2rem 2.2rem;
+/* ---- results dashboard ---- */
+.metrics {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  gap: 2rem;
-  position: relative; overflow: hidden;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
 }
-.contact-block::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--teal));
+.metric {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 1.3rem;
 }
-.contact-block h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.35rem;
-  color: var(--ink);
+.metric-val { font-family: var(--display); font-weight: 700; font-size: 1.9rem; color: var(--ink); letter-spacing: -0.02em; line-height: 1; margin-bottom: 0.5rem; }
+.metric-val.accent { color: var(--signal-deep); }
+.metric-lbl { font-size: 0.76rem; color: var(--ink-3); line-height: 1.5; }
+
+/* ---- credentials ---- */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.cred-list { display: flex; flex-direction: column; }
+.cred-item {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: 0.85rem 0; border-bottom: 1px solid var(--line);
 }
-.contact-block p { font-size: 0.85rem; color: var(--muted); }
-.contact-chips { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.cred-item:first-child { padding-top: 0; }
+.cred-item:last-child { border-bottom: none; }
+.cred-name { font-size: 0.87rem; color: var(--ink-2); font-weight: 500; }
+.cred-org { font-family: var(--mono); font-size: 0.66rem; color: var(--ink-3); white-space: nowrap; }
+
+/* ---- contact ---- */
+.contact-panel {
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1.6rem;
+}
+.contact-bar {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--dark-border);
+  background: var(--dark-bg-2);
+}
+.contact-dots { display: flex; gap: 0.35rem; }
+.contact-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--dark-border); }
+.contact-title { font-family: var(--mono); font-size: 0.65rem; color: var(--dark-muted); }
+.contact-body { padding: 2rem 2.2rem 2.2rem; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.6rem; }
+.contact-body h3 { font-family: var(--display); font-weight: 700; font-size: 1.4rem; color: var(--dark-text); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.contact-body p { color: var(--dark-muted); font-size: 0.85rem; max-width: 400px; }
+.contact-chips { display: flex; gap: 0.55rem; flex-wrap: wrap; }
 .chip {
   display: inline-flex; align-items: center; gap: 0.4rem;
-  font-family: var(--mono); font-size: 0.68rem;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border-mid);
-  border-radius: 7px;
-  color: var(--muted);
+  font-family: var(--mono); font-size: 0.7rem;
+  padding: 0.55rem 1rem;
+  border: 1px solid var(--dark-border);
+  border-radius: var(--radius);
+  color: var(--dark-text);
   text-decoration: none;
-  background: var(--bg);
   transition: all 0.15s;
-  font-weight: 500;
 }
-.chip:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-lt); transform: translateY(-1px); }
+.chip:hover { border-color: var(--dark-green); color: var(--dark-green); }
 
-/* ── FOOTER ── */
+/* ============ FOOTER ============ */
 footer {
-  border-top: 1px solid var(--border);
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 1.3rem 2.5rem;
-  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--line);
+  max-width: 1080px; margin: 3.5rem auto 0;
+  padding: 1.5rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
 }
-.footer-quote { font-family: var(--serif); font-style: italic; font-size: 0.78rem; color: var(--subtle); }
-.footer-copy { font-family: var(--mono); font-size: 0.6rem; color: var(--subtle); }
+.footer-quote { font-family: var(--mono); font-size: 0.72rem; color: var(--ink-3); }
+.footer-copy { font-family: var(--mono); font-size: 0.65rem; color: var(--ink-3); }
 
-/* ── CHAT FAB ── */
+/* ============ CHAT WIDGET ============ */
 #chat-fab {
   position: fixed; bottom: 1.8rem; right: 1.8rem; z-index: 500;
-  width: 52px; height: 52px; border-radius: 50%;
-  background: var(--blue);
-  border: none; cursor: pointer;
+  width: 50px; height: 50px; border-radius: 50%;
+  background: var(--dark-bg);
+  border: 1px solid var(--dark-border); cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 20px rgba(26,86,219,0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: var(--mono); font-size: 0.85rem; color: var(--dark-green);
+  box-shadow: 0 8px 24px rgba(20,23,27,0.28);
+  transition: transform 0.2s;
 }
-#chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(26,86,219,0.45); }
+#chat-fab:hover { transform: scale(1.07); }
 #chat-fab .fab-ping {
-  position: absolute; top: 1px; right: 1px;
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--teal);
-  border: 2px solid var(--white);
-  animation: pulse-dot 2s infinite;
+  position: absolute; top: 0; right: 0;
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--signal);
+  border: 2px solid var(--dark-bg);
+  animation: blink-dot 2s infinite;
 }
 
-/* ── CHAT PANEL ── */
 #chat-panel {
-  position: fixed; bottom: 5.6rem; right: 1.8rem; z-index: 500;
+  position: fixed; bottom: 5.4rem; right: 1.8rem; z-index: 500;
   width: 360px;
   background: var(--white);
-  border: 1px solid var(--border-mid);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--line-2);
+  border-radius: 10px;
+  box-shadow: 0 16px 40px rgba(20,23,27,0.16);
   display: flex; flex-direction: column;
   overflow: hidden;
-  transform: scale(0.9) translateY(12px);
+  transform: scale(0.94) translateY(10px);
   opacity: 0; pointer-events: none;
-  transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s;
+  transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), opacity 0.18s;
   max-height: 560px;
 }
 #chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
 
 .chat-header {
-  background: var(--blue);
-  padding: 1rem 1.1rem;
+  background: var(--dark-bg);
+  padding: 0.85rem 1rem;
   display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px solid var(--dark-border);
 }
-.chat-header-left { display: flex; align-items: center; gap: 0.7rem; }
+.chat-header-left { display: flex; align-items: center; gap: 0.65rem; }
 .chat-av {
-  width: 34px; height: 34px; border-radius: 50%;
-  background: rgba(255,255,255,0.2);
+  width: 32px; height: 32px; border-radius: 6px;
+  background: var(--dark-bg-2); border: 1px solid var(--dark-border);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--sans); font-weight: 700;
-  font-size: 0.78rem; color: #fff;
+  font-family: var(--mono); font-weight: 600;
+  font-size: 0.68rem; color: var(--dark-green);
   position: relative; flex-shrink: 0;
 }
 .chat-av-dot {
-  position: absolute; bottom: 0; right: 0;
-  width: 9px; height: 9px; border-radius: 50%;
-  background: var(--teal); border: 2px solid var(--blue);
+  position: absolute; bottom: -2px; right: -2px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--signal); border: 2px solid var(--dark-bg);
 }
-.chat-title-text { font-weight: 700; font-size: 0.88rem; color: #fff; }
-.chat-sub { font-family: var(--mono); font-size: 0.58rem; color: rgba(255,255,255,0.7); margin-top: 0.05rem; }
+.chat-title-text { font-family: var(--display); font-weight: 600; font-size: 0.85rem; color: var(--dark-text); }
+.chat-sub { font-family: var(--mono); font-size: 0.6rem; color: var(--dark-muted); margin-top: 0.1rem; }
 .chat-close {
-  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 6px; width: 26px; height: 26px;
-  cursor: pointer; color: #fff; font-size: 0.85rem;
+  background: var(--dark-bg-2); border: 1px solid var(--dark-border);
+  border-radius: 5px; width: 26px; height: 26px;
+  cursor: pointer; color: var(--dark-muted); font-size: 0.8rem;
   display: flex; align-items: center; justify-content: center;
-  transition: background 0.15s;
 }
-.chat-close:hover { background: rgba(255,255,255,0.3); }
+.chat-close:hover { color: var(--dark-text); }
 
-#chat-step-intro {
-  padding: 1.2rem;
-  display: flex; flex-direction: column; gap: 0.85rem;
-}
+#chat-step-intro { padding: 1.2rem; display: flex; flex-direction: column; gap: 0.9rem; }
 .chat-welcome {
-  font-size: 0.82rem; color: var(--muted); line-height: 1.6;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 10px; border-top-left-radius: 3px;
+  font-size: 0.8rem; color: var(--ink-2); line-height: 1.6;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 8px; border-top-left-radius: 2px;
   padding: 0.75rem 0.9rem;
 }
-.chat-welcome strong { color: var(--ink2); }
-.flabel { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle); margin-bottom: 0.25rem; display: block; }
+.flabel { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.3rem; display: block; }
 .finput {
-  width: 100%; background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 7px; padding: 0.52rem 0.75rem;
+  width: 100%; background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-radius: 6px; padding: 0.55rem 0.75rem;
   font-family: var(--sans); font-size: 0.82rem;
   color: var(--ink); outline: none;
-  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.finput:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,86,219,0.1); }
-.finput::placeholder { color: var(--subtle); }
-.finput.err { border-color: var(--rose); }
-.ferr { font-family: var(--mono); font-size: 0.6rem; color: var(--rose); margin-top: -0.3rem; display: none; }
+.finput:focus { border-color: var(--signal); }
+.finput.err { border-color: #B3392E; }
+.ferr { font-family: var(--mono); font-size: 0.6rem; color: #B3392E; margin-top: -0.35rem; display: none; }
 .captcha-row { display: flex; align-items: center; gap: 0.6rem; }
 .captcha-q {
-  font-family: var(--mono); font-size: 0.8rem; color: var(--ink2);
-  background: var(--bg2); border: 1px solid var(--border);
-  border-radius: 6px; padding: 0.45rem 0.7rem;
+  font-family: var(--mono); font-size: 0.8rem; color: var(--ink-2);
+  background: var(--paper-2); border: 1px solid var(--line);
+  border-radius: 5px; padding: 0.45rem 0.7rem;
   white-space: nowrap; flex-shrink: 0; font-weight: 600;
 }
 .captcha-in {
-  background: var(--bg); border: 1px solid var(--border);
-  border-radius: 6px; padding: 0.45rem 0.6rem;
+  background: var(--paper); border: 1px solid var(--line-2);
+  border-radius: 5px; padding: 0.45rem 0.6rem;
   font-family: var(--mono); font-size: 0.8rem; color: var(--ink);
-  outline: none; width: 60px; text-align: center;
-  transition: border-color 0.15s;
+  outline: none; width: 58px; text-align: center;
 }
-.captcha-in:focus { border-color: var(--blue); }
-.captcha-in.err { border-color: var(--rose); }
-.captcha-refresh {
-  background: none; border: none; cursor: pointer;
-  color: var(--subtle); font-size: 0.85rem;
-  transition: color 0.15s, transform 0.2s; padding: 2px;
-}
-.captcha-refresh:hover { color: var(--blue); transform: rotate(180deg); }
+.captcha-in.err { border-color: #B3392E; }
+.captcha-refresh { background: none; border: none; cursor: pointer; color: var(--ink-3); font-size: 0.85rem; }
+.captcha-refresh:hover { color: var(--signal-deep); }
 .btn-start {
-  background: var(--blue); color: #fff;
-  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
-  padding: 0.62rem 1.2rem; border-radius: 7px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.03em;
+  padding: 0.65rem 1.2rem; border-radius: 6px;
   border: none; cursor: pointer; font-weight: 600;
   display: flex; align-items: center; justify-content: center; gap: 0.45rem;
-  transition: opacity 0.15s, transform 0.15s;
 }
-.btn-start:hover { opacity: 0.9; transform: translateY(-1px); }
-.btn-start:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-start:hover { background: var(--signal-deep); }
+.btn-start:disabled { opacity: 0.5; cursor: not-allowed; }
 
 #chat-step-chat { display: none; flex-direction: column; flex: 1; min-height: 0; }
 .chat-verified {
   padding: 0.5rem 1.1rem;
-  background: var(--teal-lt);
-  border-bottom: 1px solid rgba(13,148,136,0.15);
+  background: var(--signal-dim);
+  border-bottom: 1px solid var(--line);
   display: flex; align-items: center; gap: 0.5rem;
   font-family: var(--mono); font-size: 0.62rem;
-  color: var(--teal); font-weight: 600;
+  color: var(--signal-deep); font-weight: 600;
   flex-shrink: 0;
 }
-.chat-msgs {
-  flex: 1; overflow-y: auto; padding: 0.9rem 1rem;
-  display: flex; flex-direction: column; gap: 0.65rem;
-  scroll-behavior: smooth;
-}
-.chat-msgs::-webkit-scrollbar { width: 4px; }
-.chat-msgs::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.chat-msgs { flex: 1; overflow-y: auto; padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.65rem; }
 .msg { display: flex; gap: 0.45rem; align-items: flex-end; max-width: 90%; }
 .msg.bot { align-self: flex-start; }
 .msg.user { align-self: flex-end; flex-direction: row-reverse; }
-.msg-av {
-  width: 24px; height: 24px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.58rem; font-weight: 700; flex-shrink: 0;
-}
-.msg.bot .msg-av { background: var(--blue); color: #fff; }
-.msg.user .msg-av { background: var(--bg2); color: var(--muted); border: 1px solid var(--border); }
-.msg-b {
-  padding: 0.55rem 0.8rem; border-radius: 10px;
-  font-size: 0.78rem; line-height: 1.55;
-}
-.msg.bot .msg-b {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--ink2);
-  border-bottom-left-radius: 3px;
-}
-.msg.user .msg-b {
-  background: var(--blue);
-  color: #fff;
-  border-bottom-right-radius: 3px;
-}
-.typing { display: flex; gap: 3px; align-items: center; padding: 0.55rem 0.8rem; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; border-bottom-left-radius: 3px; width: fit-content; }
-.typing-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--subtle); animation: bounce 1.2s ease-in-out infinite; }
+.msg-av { width: 22px; height: 22px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.56rem; font-weight: 700; flex-shrink: 0; }
+.msg.bot .msg-av { background: var(--dark-bg); color: var(--dark-green); }
+.msg.user .msg-av { background: var(--paper-2); color: var(--ink-3); border: 1px solid var(--line); }
+.msg-b { padding: 0.55rem 0.8rem; border-radius: 9px; font-size: 0.78rem; line-height: 1.55; }
+.msg.bot .msg-b { background: var(--paper-2); border: 1px solid var(--line); color: var(--ink-2); border-bottom-left-radius: 2px; }
+.msg.user .msg-b { background: var(--ink); color: var(--paper); border-bottom-right-radius: 2px; }
+.typing { display: flex; gap: 3px; align-items: center; padding: 0.55rem 0.8rem; background: var(--paper-2); border: 1px solid var(--line); border-radius: 9px; border-bottom-left-radius: 2px; width: fit-content; }
+.typing-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--ink-3); animation: bounce 1.2s ease-in-out infinite; }
 .typing-dot:nth-child(2) { animation-delay: 0.18s; }
 .typing-dot:nth-child(3) { animation-delay: 0.36s; }
 @keyframes bounce { 0%,60%,100% { transform: translateY(0); } 30% { transform: translateY(-4px); } }
 .chat-sugs { padding: 0 1rem 0.65rem; display: flex; flex-wrap: wrap; gap: 0.3rem; flex-shrink: 0; }
-.sug {
-  font-family: var(--mono); font-size: 0.6rem;
-  padding: 0.22rem 0.6rem; border-radius: 20px;
-  border: 1px solid var(--border-mid); color: var(--muted);
-  background: var(--bg); cursor: pointer;
-  transition: all 0.12s; white-space: nowrap;
-}
-.sug:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-lt); }
-.chat-input-row {
-  border-top: 1px solid var(--border);
-  padding: 0.7rem 1rem;
-  display: flex; gap: 0.5rem; align-items: center;
-  flex-shrink: 0;
-}
-#chat-in {
-  flex: 1; background: var(--bg); border: 1px solid var(--border);
-  border-radius: 7px; padding: 0.48rem 0.75rem;
-  font-family: var(--sans); font-size: 0.78rem;
-  color: var(--ink); outline: none;
-  transition: border-color 0.15s;
-}
-#chat-in:focus { border-color: var(--blue); }
-#chat-in::placeholder { color: var(--subtle); }
-#chat-send {
-  width: 34px; height: 34px; border-radius: 7px;
-  background: var(--blue); border: none; color: #fff;
-  cursor: pointer; font-size: 0.85rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.12s; flex-shrink: 0;
-}
-#chat-send:hover { background: var(--blue-md); }
-#chat-send:disabled { background: var(--border); cursor: not-allowed; }
+.sug { font-family: var(--mono); font-size: 0.6rem; padding: 0.22rem 0.6rem; border-radius: 20px; border: 1px solid var(--line-2); color: var(--ink-3); background: var(--paper); cursor: pointer; }
+.sug:hover { border-color: var(--signal); color: var(--signal-deep); background: var(--signal-dim); }
+.chat-input-row { border-top: 1px solid var(--line); padding: 0.7rem 1rem; display: flex; gap: 0.5rem; align-items: center; flex-shrink: 0; }
+#chat-in { flex: 1; background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 0.48rem 0.75rem; font-family: var(--sans); font-size: 0.78rem; color: var(--ink); outline: none; }
+#chat-in:focus { border-color: var(--signal); }
+#chat-send { width: 34px; height: 34px; border-radius: 6px; background: var(--ink); border: none; color: var(--paper); cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+#chat-send:hover { background: var(--signal-deep); }
+#chat-send:disabled { background: var(--line-2); cursor: not-allowed; }
 
 #toast {
-  position: fixed; bottom: 5.4rem; right: 1.8rem; z-index: 600;
-  background: var(--white); border: 1px solid rgba(13,148,136,0.3);
-  border-radius: 10px; padding: 0.7rem 1rem;
+  position: fixed; bottom: 5.2rem; right: 1.8rem; z-index: 600;
+  background: var(--dark-bg); border: 1px solid var(--dark-border);
+  border-radius: 8px; padding: 0.7rem 1rem;
   display: flex; align-items: center; gap: 0.5rem;
-  font-family: var(--mono); font-size: 0.68rem; color: var(--teal);
-  box-shadow: var(--shadow-md);
+  font-family: var(--mono); font-size: 0.68rem; color: var(--dark-green);
+  box-shadow: 0 12px 30px rgba(20,23,27,0.25);
   transform: translateY(10px); opacity: 0;
   transition: all 0.3s; pointer-events: none;
 }
 #toast.show { transform: translateY(0); opacity: 1; }
-#toast.warn { border-color: rgba(180,83,9,0.35); color: var(--amber); }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-.hero-badge { animation: fadeUp 0.45s 0.05s both; }
-h1 { animation: fadeUp 0.45s 0.12s both; }
-.hero-title-line { animation: fadeUp 0.45s 0.18s both; }
-.hero-bio { animation: fadeUp 0.45s 0.24s both; }
-.hero-actions { animation: fadeUp 0.45s 0.3s both; }
-.hero-stats { animation: fadeUp 0.45s 0.38s both; }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 860px) {
-  nav { padding: 0 1.2rem; }
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .wrap, nav, .ribbon { padding-left: 1.2rem; padding-right: 1.2rem; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
-  .hero { padding: 3rem 1.2rem 2.5rem; }
-  .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero-stats { grid-template-columns: repeat(3, 1fr); }
-  .container { padding: 0 1.2rem 3rem; }
-  .stack-grid { grid-template-columns: 1fr 1fr; }
-  .comp-grid { grid-template-columns: 1fr 1fr; }
-  .ach-grid { grid-template-columns: 1fr 1fr; }
-  .two-col { grid-template-columns: 1fr; }
-  .contact-block { grid-template-columns: 1fr; gap: 1.2rem; }
-  .contact-chips { justify-content: flex-start; }
-  footer { padding: 1rem 1.2rem; }
+  .hero-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .two-col { grid-template-columns: 1fr; gap: 0; }
+  .contact-body { flex-direction: column; align-items: flex-start; }
+  footer { padding: 1.2rem; }
 }
 @media (max-width: 520px) {
-  .stack-grid { grid-template-columns: 1fr; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .metrics { grid-template-columns: 1fr 1fr; }
   h1 { font-size: 2rem; }
-  #chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5rem; }
+  #chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 4.8rem; }
   #chat-fab { bottom: 1.2rem; right: 1.2rem; }
+  .term-body, .manifest-body { font-size: 0.7rem; }
+  .commit-diff li, .log-desc { font-size: 0.76rem; }
 }
-
 </style>
 </head>
 <body>
 
+<!-- STATUS RIBBON -->
+<div class="ribbon">
+  <div class="ribbon-left">
+    <span class="ribbon-dot"></span>
+    <strong>BUILD PASSING</strong>
+    <span class="ribbon-sep">·</span>
+    <span>OPEN TO NEW ROLES</span>
+  </div>
+  <div>LEEDS, UK <span class="ribbon-sep">·</span> ON-Site / OFFICE-FRIENDLY</div>
+</div>
+
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <span class="nav-logo-dot"></span>
-    <a href="mailto:gkmbala@gmail.com" class="btn btn-outline">gkmbala@gmail.com</a>
-  </div>
+  <div class="nav-logo"><span class="path">~/</span>balaji<span class="cursor"></span></div>
   <ul class="nav-links">
     <li><a href="#stack">Stack</a></li>
+    <li><a href="#automation">Automation</a></li>
     <li><a href="#experience">Experience</a></li>
-    <li><a href="#achievements">Results</a></li>
-    <li><a href="#certs">Certs</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#credentials">Credentials</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get in touch →</a>
   <button class="hamburger" aria-label="Menu" onclick="toggleMob(this)">
@@ -812,546 +626,296 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-inner">
+<div class="wrap hero">
+  <div class="hero-grid">
     <div>
-      <div class="hero-badge">Open to new opportunities · United Kingdom</div>
-      <h1>Balaji<br><span class="serif-name">Kaliyaperumal</span></h1>
-      <p class="hero-title-line">
-      Senior Full Stack Engineer&nbsp;·&nbsp;<span>AWS &amp; Adobe Commerce </span> &nbsp;·&nbsp;<span>Python &amp; AI Automation</span>&nbsp;·&nbsp;Cloud Architect
-      </p>
-      <p class="hero-bio">
-        <p>
-		  I’m a senior software engineer and solution architect focused on building
-		  <strong>production-grade, scalable software and intelligent automation</strong>.
-		  My expertise spans <strong>Python, agentic AI, workflow automation, API integrations,
-		  Adobe Commerce, AWS, and CI/CD</strong>, with a strong focus on turning complex
-		  business processes into reliable, automated systems.
-		</p>
-
-		<p>
-		  I architect and develop <strong>Adobe Commerce platforms on AWS</strong>, integrate
-		  ERPs and third-party APIs, and build <strong>Python-driven AI and automation
-		  solutions</strong> including intelligent reporting, operational workflows, and
-		  agentic AI pipelines. I also design robust <strong>CI/CD and deployment
-		  architectures</strong>, lead distributed engineering teams, and remain hands-on
-		  with architecture, development, troubleshooting, and production delivery.
-		</p>
-      </p>
+      <div class="eyebrow">status.log — open to new opportunities</div>
+      <h1>Balaji<br>Kaliyaperumal</h1>
+      <p class="role-line">Senior Full-Stack Engineer — Technology Specialist Lead</p>
+      <p class="focus-line">Adobe Commerce · AWS · Python · Agentic AI Automation</p>
+      <div class="hero-bio">
+        <p>I design and build <strong>production-grade commerce platforms and intelligent automation</strong> — turning fragile manual processes into reliable, monitored systems. My work spans Adobe Commerce architecture, ERP and API integrations, and Python-driven AI pipelines.</p>
+        <p>Day to day: leading distributed engineering teams, shipping <strong>CI/CD and cloud infrastructure</strong> on AWS, and building agentic workflows and reporting tools that put OpenAI models to work on real operational data.</p>
+      </div>
       <div class="hero-actions">
         <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank" class="btn btn-primary">LinkedIn →</a>
-        <a href="mailto:gkmbala@gmail.com" class="btn btn-outline">📧 Email</a>
+        <a href="mailto:gkmbala@gmail.com" class="btn btn-outline">Email</a>
         <a href="https://github.com/gkmbala" target="_blank" class="btn btn-outline">GitHub ↗</a>
-        <button class="btn btn-ghost" onclick="toggleChat()">💬 Ask me anything</button>
+        <button class="btn btn-ghost" onclick="toggleChat()">Ask the AI about me</button>
       </div>
     </div>
 
-    <div class="hero-stats">
-      <p class="hero-stats-label">By the numbers</p>
-      <div class="stat"><span class="val">14+</span><span class="lbl">Years exp.</span></div>
-      <div class="stat"><span class="val">40%</span><span class="lbl">Ops cost saved</span></div>
-      <div class="stat"><span class="val">70%</span><span class="lbl">Faster deploys</span></div>
-      <div class="stat"><span class="val">55%</span><span class="lbl">Revenue up</span></div>
-      <div class="stat"><span class="val">25+</span><span class="lbl">Integrations</span></div>
-      <div class="stat"><span class="val">99.9%</span><span class="lbl">Uptime</span></div>
+    <div class="term">
+      <div class="term-bar">
+        <span class="term-dots"><span></span><span></span><span></span></span>
+        <span class="term-title">status.log</span>
+      </div>
+      <div class="term-body">
+        <div class="term-row"><span class="term-key">experience</span><span class="term-val">14+ years</span></div>
+        <div class="term-row"><span class="term-key">role</span><span class="term-val">Tech Specialist Lead</span></div>
+        <div class="term-row"><span class="term-key">location</span><span class="term-val">Leeds, UK</span></div>
+        <div class="term-row"><span class="term-key">ops overhead</span><span class="term-val pass">−40%</span></div>
+        <div class="term-row"><span class="term-key">deploy time</span><span class="term-val pass">−50%</span></div>
+        <div class="term-row"><span class="term-key">revenue impact</span><span class="term-val pass">+35%</span></div>
+        <div class="term-row"><span class="term-key">integrations</span><span class="term-val">15+ systems</span></div>
+        <div class="term-row"><span class="term-key">uptime</span><span class="term-val amber">99.9%</span></div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- MAIN -->
-<div class="container">
+<div class="wrap">
 
-  <!-- TECH STACK -->
+  <!-- STACK -->
   <div class="section" id="stack">
     <div class="section-head">
-      <span class="section-tag">01 / stack</span>
-      <h2>Tech Stack</h2>
-      <div class="section-rule"></div>
+      <p class="section-path">~ <span class="sep">/</span> stack</p>
+      <h2>Technical Stack</h2>
     </div>
-    <div class="stack-grid">
-      <div class="stack-card">
-        <p class="stack-cat"><span class="cat-dot"></span>Languages</p>
-        <div class="tags">
-          <span class="tag highlight">Python</span>
-          <span class="tag">PHP</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">C#</span>
-          <span class="tag">HTML5</span>
-        </div>
+    <div class="manifest">
+      <div class="manifest-bar">
+        <span class="manifest-dots"><span></span><span></span><span></span></span>
+        <span class="manifest-title">stack.yaml</span>
       </div>
-      <div class="stack-card">
-        <p class="stack-cat"><span class="cat-dot"></span>Backend &amp; Frameworks</p>
-        <div class="tags">
-          <span class="tag highlight">Adobe Commerce</span>
-          <span class="tag">Magento 2.x</span>
-          <span class="tag">Django</span>
-          <span class="tag">Flask</span>
-          <span class="tag">Laravel</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">ASP.NET</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <p class="stack-cat"><span class="cat-dot"></span>Cloud &amp; DevOps</p>
-        <div class="tags">
-          <span class="tag highlight">AWS</span>
-          <span class="tag highlight">Docker</span>
-          <span class="tag highlight">CI/CD</span>
-          <span class="tag">Azure</span>
-          <span class="tag">Jenkins</span>
-          <span class="tag">GitHub Actions</span>
-          <span class="tag">Terraform</span>
-          <span class="tag">Ansible</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <p class="stack-cat"><span class="cat-dot"></span>Databases</p>
-        <div class="tags">
-          <span class="tag">MySQL</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">SQL Server</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">Redis</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <p class="stack-cat"><span class="cat-dot"></span>AI &amp; Automation</p>
-        <div class="tags">
-          <span class="tag teal">OpenAI API</span>
-          <span class="tag teal">LLM Pipelines</span>
-          <span class="tag teal">Agentic AI</span>
-          <span class="tag teal">RAG / Embeddings</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Azure ML</span>
-          <span class="tag">Power Automate</span>
-          <span class="tag">Chatbots</span>
-          <span class="tag">Webhook Automation</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <p class="stack-cat"><span class="cat-dot"></span>Data &amp; BI</p>
-        <div class="tags">
-          <span class="tag amber">Power BI</span>
-          <span class="tag">DAX</span>
-          <span class="tag">Pandas / NumPy</span>
-          <span class="tag">SQLAlchemy</span>
-          <span class="tag">Zoho Analytics</span>
-          <span class="tag">ERP Reporting</span>
-          <span class="tag">REST / GraphQL APIs</span>
-        </div>
+      <div class="manifest-body">
+        <div class="manifest-line"><span class="manifest-ln">1</span><span class="manifest-key">languages:</span><span class="manifest-val">Python, PHP, JavaScript, C#, HTML5</span></div>
+        <div class="manifest-line"><span class="manifest-ln">2</span><span class="manifest-key">backend:</span><span class="manifest-val">Adobe Commerce, Magento 2.x, Django, Flask, Laravel, Node.js, ASP.NET</span></div>
+        <div class="manifest-line"><span class="manifest-ln">3</span><span class="manifest-key">cloud:</span><span class="manifest-val">AWS, Docker, CI/CD, Azure, Jenkins, GitHub Actions</span></div>
+        <div class="manifest-line"><span class="manifest-ln">4</span><span class="manifest-key">data:</span><span class="manifest-val">MySQL, SQL Server, MongoDB, Redis</span></div>
+        <div class="manifest-line"><span class="manifest-ln">5</span><span class="manifest-key">ai:</span><span class="manifest-val">OpenAI API, AI Fundamentals, Generative AI, LLM Applications, RAG <span class="dim">/ embeddings</span></div>
+        <div class="manifest-line"><span class="manifest-ln">6</span><span class="manifest-key">analytics:</span><span class="manifest-val">Power BI, Pandas, Zoho Analytics</span></div>
       </div>
     </div>
   </div>
 
-  <!-- PYTHON & AI SPOTLIGHT -->
-  <div class="section" id="ai-work">
+  <!-- AUTOMATION -->
+  <div class="section" id="automation">
     <div class="section-head">
-      <span class="section-tag">02 / automation &amp; ai</span>
-      <h2>AI Automation Work</h2>
-      <div class="section-rule"></div>
+      <p class="section-path">~ <span class="sep">/</span>e-Commerce, Integration, Software Development & automation</p>
+      <h2>Development &amp; Automation Work</h2>
+      <p class="section-dek">Where most of my recent focus lives — replacing manual operational work with Python services, agentic pipelines, and integrations that run themselves.</p>
     </div>
-    <div class="ai-grid">
-      <div class="ai-card">
-        <span class="ai-icon">🤖</span>
-        <h3 class="ai-title">Agentic AI Pipelines</h3>
-        <p class="ai-desc">Built multi-step agentic workflows using OpenAI function calling and LangChain  agents that autonomously query ERPs, parse order data, take actions, and report outcomes without human intervention.</p>
-        <div class="tags" style="margin-top:0.6rem">
-          <span class="tag teal">OpenAI</span><span class="tag teal">LangChain</span><span class="tag">Python</span><span class="tag">REST APIs</span>
+    <p class="subgroup-label">Integration, Data &amp; Microservices</p>
+    <div class="log-list">
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">Adobe Commerce &amp; ERP integration</span></div>
+          <p class="log-desc">Automated integrations between Adobe Commerce, ERP, warehouse, and third-party systems for product, stock, order, and customer data — with validation and error handling to keep everything in sync.</p>
+          <div class="log-stack"><span>Adobe Commerce</span><span>ERP</span><span>Webhooks</span><span>Python</span></div>
         </div>
       </div>
-      <div class="ai-card">
-        <span class="ai-icon">💬</span>
-        <h3 class="ai-title"> Powered Chatbots</h3>
-        <p class="ai-desc">Developed AI chatbots embedded into e-commerce platforms and internal tools  handling customer queries, order lookups, and support triage using RAG over product catalogues and order history.</p>
-        <div class="tags" style="margin-top:0.6rem">
-          <span class="tag teal">RAG</span><span class="tag teal">Embeddings</span><span class="tag">Flask</span><span class="tag">Adobe Commerce</span>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">Python microservices</span></div>
+          <p class="log-desc">Flask-based microservices connecting commerce, ERP, warehouse, and payment systems, with scheduled workers for reliable cross-system automation.</p>
+          <div class="log-stack"><span>Flask</span><span>Docker</span><span>Microservices</span></div>
         </div>
       </div>
-      <div class="ai-card">
-        <span class="ai-icon">⚙️</span>
-        <h3 class="ai-title">Ops Automation (Python)</h3>
-        <p class="ai-desc">Replaced manual operations with Python scripts and scheduled jobs  automated stock sync, invoice reconciliation, shipment tracking updates, and alert systems, saving the ops team 40% of their time.</p>
-        <div class="tags" style="margin-top:0.6rem">
-          <span class="tag highlight">Python</span><span class="tag">Celery</span><span class="tag">Cron</span><span class="tag">ERP APIs</span>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">SQL &amp; data engineering</span></div>
+          <p class="log-desc">Extraction, transformation, validation, and reconciliation pipelines across MySQL, Adobe Commerce, and ERP systems for operational reporting.</p>
+          <div class="log-stack"><span>MySQL</span><span>SQL</span><span>Pandas</span><span>ETL</span></div>
         </div>
       </div>
-      <div class="ai-card">
-        <span class="ai-icon">📊</span>
-        <h3 class="ai-title">AI-Driven Reporting</h3>
-        <p class="ai-desc">Built intelligent reporting pipelines that pull data from MySQL and ERPs, run automated Python analysis, and generate plain-English summaries using LLMs  delivered to Slack, email, or Power BI dashboards.</p>
-        <div class="tags" style="margin-top:0.6rem">
-          <span class="tag amber">Power BI</span><span class="tag">Pandas</span><span class="tag teal">OpenAI</span><span class="tag">SQLAlchemy</span>
-        </div>
-      </div>
-      <div class="ai-card">
-        <span class="ai-icon">🔄</span>
-        <h3 class="ai-title">Power Automate Workflows</h3>
-        <p class="ai-desc">Designed no-code/low-code automation flows with Power Automate connecting Dynamics, SharePoint, and e-commerce backends  automating approval chains, notifications, and cross-system data pushes.</p>
-        <div class="tags" style="margin-top:0.6rem">
-          <span class="tag">Power Automate</span><span class="tag">Microsoft 365</span><span class="tag">Webhooks</span>
-        </div>
-      </div>
-      <div class="ai-card">
-        <span class="ai-icon">🚀</span>
-        <h3 class="ai-title">CI/CD &amp; DevOps Automation</h3>
-        <p class="ai-desc">End-to-end pipeline automation with GitHub Actions and Docker  lint, test, build, deploy in one flow. Python scripts for infrastructure provisioning, environment management, and post-deploy health checks.</p>
-        <div class="tags" style="margin-top:0.6rem">
-          <span class="tag highlight">Docker</span><span class="tag">GitHub Actions</span><span class="tag highlight">AWS</span><span class="tag">Python</span>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">Power BI &amp; business reporting</span></div>
+          <p class="log-desc">Automated reporting pipelines connecting SQL databases and ERP data to Power BI dashboards — clear visibility into sales, stock, orders, and operational performance.</p>
+          <div class="log-stack"><span>Power BI</span><span>SQL</span><span>Analytics</span></div>
         </div>
       </div>
     </div>
-	<!-- 02.1 Agentic Automation with Adobe Commerce -->
-	  <div class="section-subhead">
-		<span class="section-tag">02.1 / Commerce automation</span>
-		<h3>Adobe Commerce - Automation - DevOps</h3>
-		<div class="section-rule"></div>
-	  </div>
-	  <div class="ai-grid">
-		<div class="ai-card">
-		  <span class="ai-icon">🤖</span>
-		  <h3 class="ai-title">Automated Commerce Workflows</h3>
-		  <p class="ai-desc">
-			Built multi-step automation workflows around Adobe Commerce that
-			process business rules, query product and order data, interact with
-			Commerce APIs, and execute actions automatically without manual
-			intervention.
-		  </p>
-		  <div class="tags" style="margin-top:0.6rem">
-			<span class="tag teal">Python</span>
-			<span class="tag">Adobe Commerce</span>
-			<span class="tag">REST APIs</span>
-			<span class="tag">Business Rules</span>
-		  </div>
-		</div>
+    <p class="subgroup-label">Automation &amp; AI</p>
+    <div class="log-list">
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">Agentic AI pipelines</span><span class="log-tag">core</span></div>
+          <p class="log-desc">Multi-step agentic workflows using OpenAI function calling and LangChain agents that query ERPs, parse order data, take action, and report outcomes without human intervention.</p>
+          <div class="log-stack"><span>OpenAI</span><span>LangChain</span><span>Python</span><span>REST APIs</span></div>
+        </div>
+      </div>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">AI-powered chatbots</span></div>
+          <p class="log-desc">Chatbots embedded into e-commerce platforms and internal tools, handling customer queries, order lookups, and support triage using RAG over product catalogues and order history.</p>
+          <div class="log-stack"><span>RAG</span><span>Embeddings</span><span>Flask</span><span>Adobe Commerce</span></div>
+        </div>
+      </div>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">Ops automation in Python</span></div>
+          <p class="log-desc">Replaced manual operations with Python scripts and scheduled jobs — stock sync, invoice reconciliation, shipment tracking, alerting — saving the ops team 40% of their time.</p>
+          <div class="log-stack"><span>Python</span><span>Celery</span><span>Cron</span><span>ERP APIs</span></div>
+        </div>
+      </div>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">AI-driven reporting</span></div>
+          <p class="log-desc">Pipelines that pull data from MySQL and ERPs, run automated Python analysis, and generate plain-English summaries with LLMs — delivered to Slack, email, or Power BI.</p>
+          <div class="log-stack"><span>Power BI</span><span>Pandas</span><span>OpenAI</span><span>SQLAlchemy</span></div>
+        </div>
+      </div>
+      <div class="log-item">
+        <div class="log-rule"></div>
+        <div>
+          <div class="log-head"><span class="log-title">Live on this site: the chat widget</span></div>
+          <p class="log-desc">The "Ask the AI" panel in the corner is one of these — a Python API backing a validated, CAPTCHA-gated chat session, with visitor capture routed through a separate notification workflow.</p>
+          <div class="log-stack"><span>Python</span><span>REST API</span><span>CAPTCHA</span><span>Email automation</span></div>
+        </div>
+      </div>
+    </div>
 
-		<div class="ai-card">
-		  <span class="ai-icon">🔄</span>
-		  <h3 class="ai-title">Commerce &amp; ERP Integration</h3>
-		  <p class="ai-desc">
-			Developed automated integrations between Adobe Commerce, ERP,
-			warehouse and third-party systems for product, stock, order and
-			customer data. Implemented validation, transformation and
-			error-handling processes to keep systems synchronised.
-		  </p>
-		  <div class="tags" style="margin-top:0.6rem">
-			<span class="tag teal">Python</span>
-			<span class="tag">Adobe Commerce</span>
-			<span class="tag">ERP</span>
-			<span class="tag">REST APIs</span>
-			<span class="tag">Webhooks</span>
-		  </div>
-		</div>
-		<div class="ai-card">
-		  <span class="ai-icon">⚡</span>
-		  <h3 class="ai-title">Intelligent Process Automation</h3>
-		  <p class="ai-desc">
-			Automated repetitive operational processes using Python, scheduled
-			jobs and API integrations, including stock synchronisation, order
-			processing, data validation, exception handling and automated
-			notifications.
-		  </p>
-		  <div class="tags" style="margin-top:0.6rem">
-			<span class="tag highlight">Python</span>
-			<span class="tag">Automation</span>
-			<span class="tag">Cron</span>
-			<span class="tag">ERP APIs</span>
-			<span class="tag">Webhooks</span>
-		  </div>
-		</div>
-	  </div>
-
-
-  <!-- 02.2 Microservices, SQL & Power BI -->
-  <div class="section-subhead">
-    <span class="section-tag">02.2 / microservices &amp; data</span>
-    <h3>Microservices, SQL &amp; Power BI</h3>
+    
   </div>
-
-  <div class="ai-grid">
-
-    <div class="ai-card">
-      <span class="ai-icon">⚙️</span>
-      <h3 class="ai-title">Python Microservices</h3>
-      <p class="ai-desc">
-        Designed and developed Python-based microservices using Flask and
-        REST APIs to connect Adobe Commerce, ERP, warehouse, payment and
-        third-party systems. Built scheduled workers and reliable
-        integration services for cross-system automation.
-      </p>
-      <div class="tags" style="margin-top:0.6rem">
-        <span class="tag highlight">Python</span>
-        <span class="tag">Flask</span>
-        <span class="tag">REST APIs</span>
-        <span class="tag">Microservices</span>
-        <span class="tag">Docker</span>
-      </div>
-    </div>
-
-    <div class="ai-card">
-      <span class="ai-icon">🗄️</span>
-      <h3 class="ai-title">SQL &amp; Data Engineering</h3>
-      <p class="ai-desc">
-        Built data processing and integration pipelines across MySQL,
-        Adobe Commerce and ERP systems. Used SQL and Python for data
-        extraction, transformation, validation, reconciliation and
-        operational reporting.
-      </p>
-      <div class="tags" style="margin-top:0.6rem">
-        <span class="tag highlight">MySQL</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Python</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">ETL</span>
-      </div>
-    </div>
-
-    <div class="ai-card">
-      <span class="ai-icon">📊</span>
-      <h3 class="ai-title">Power BI &amp; Business Reporting</h3>
-      <p class="ai-desc">
-        Created automated reporting pipelines connecting SQL databases,
-        ERP systems and operational data to Power BI. Developed dashboards,
-        KPIs and business reports to provide clear visibility into sales,
-        stock, orders and operational performance.
-      </p>
-      <div class="tags" style="margin-top:0.6rem">
-        <span class="tag amber">Power BI</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Python</span>
-        <span class="tag">MySQL</span>
-        <span class="tag">Analytics</span>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-  
-
 
   <!-- COMPETENCIES -->
   <div class="section" id="competencies">
     <div class="section-head">
-      <span class="section-tag">03 / core</span>
+      <p class="section-path">~ <span class="sep">/</span> competencies</p>
       <h2>Core Competencies</h2>
-      <div class="section-rule"></div>
     </div>
-    <div class="comp-grid">
-      <div class="comp-item">Clean Architecture</div>
-      <div class="comp-item">API Design &amp; Integration</div>
-      <div class="comp-item">Microservices</div>
-      <div class="comp-item">Cloud-Native Solutions</div>
-      <div class="comp-item">Test-Driven Development</div>
-      <div class="comp-item">Performance Optimisation</div>
-      <div class="comp-item">Team Leadership</div>
-      <div class="comp-item">Technical Mentorship</div>
-      <div class="comp-item">Agile / Scrum</div>
-      <div class="comp-item">CI/CD Automation</div>
-      <div class="comp-item">Data Analytics &amp; BI</div>
-      <div class="comp-item">Security Best Practices</div>
+    <div class="comp-row">
+      <span class="comp-chip">Clean Architecture</span>
+      <span class="comp-chip">API Design & Integration</span>
+      <span class="comp-chip">Microservices</span>
+      <span class="comp-chip">Cloud-Native Solutions</span>
+      <span class="comp-chip">Test-Driven Development</span>
+      <span class="comp-chip">Performance Optimisation</span>
+      <span class="comp-chip">Team Leadership</span>
+      <span class="comp-chip">Technical Mentorship</span>
+      <span class="comp-chip">Agile / Scrum</span>
+      <span class="comp-chip">CI/CD Automation</span>
+      <span class="comp-chip">Data Analytics & BI</span>
+      <span class="comp-chip">Security Best Practices</span>
     </div>
   </div>
 
   <!-- EXPERIENCE -->
   <div class="section" id="experience">
     <div class="section-head">
-      <span class="section-tag">04 / experience</span>
+      <p class="section-path">~ <span class="sep">/</span> experience</p>
       <h2>Experience</h2>
-      <div class="section-rule"></div>
+      <p class="section-dek">14+ years, told the way I'd read it — as a log.</p>
     </div>
-    <div class="exp-list">
+    <div class="commit-list">
 
-      <div class="exp-card">
-        <div class="exp-left-bar"></div>
-        <div>
-          <p class="exp-company">Lencarta Ltd · Leeds, UK</p>
-          <div class="exp-header">
-            <p class="exp-role">Technology Specialist Lead</p>
-            <div class="exp-meta">
-              <span class="exp-date">Dec 2020 — Present</span>
-              <span class="exp-loc">Full-time · On-site</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Lead distributed engineering teams (5–8 developers, multiple time zones) delivering e-commerce platforms with <strong>99.9% uptime</strong>.</li>
-            <li>Architected Python-based AI automation pipelines reducing operational overhead by <strong>40%</strong> — covering order processing, reporting, and support workflows.</li>
-            <li>Designed and implemented CI/CD pipelines with Docker and GitHub Actions, cutting deployment cycles by <strong>50%</strong> and reducing release risk.</li>
-            <li>Built Adobe Commerce / Magento 2.x platforms integrated with <strong>15+ ERP and third-party systems</strong> (SAP, payment gateways, logistics APIs) processing 10K+ daily transactions.</li>
-            <li>Delivered Power BI dashboards and Power Automate workflows turning raw operational data into actionable business insights for senior stakeholders.</li>
-            <li>Implemented agentic AI chatbots and LLM-powered reporting tools using OpenAI APIs integrated into the existing PHP/Python stack.</li>
+      <div class="commit">
+        <div class="commit-bar">
+          <span class="commit-hash">8f1c9d3</span>
+          <span class="commit-meta">Dec 2020 — Present · Leeds, UK · Full-time</span>
+        </div>
+        <div class="commit-body">
+          <p class="commit-subject">Technology Specialist Lead <span class="company">@ Lencarta Ltd</span></p>
+          <ul class="commit-diff">
+            <li>Lead distributed engineering teams (<strong>5–8 developers</strong>, multiple time zones) delivering e-commerce platforms at <strong>99.9% uptime</strong>.</li>
+            <li>Architected Python-based AI automation pipelines cutting operational overhead by <strong>40%</strong> across order processing, reporting, and support.</li>
+            <li>Designed CI/CD pipelines with Docker and GitHub Actions, cutting deployment cycles by <strong>50%</strong>.</li>
+            <li>Built Adobe Commerce platforms integrated with <strong>15+ ERP and third-party systems</strong> (SAP, payment gateways, logistics APIs) processing 10K+ daily transactions.</li>
+            <li>Delivered Power BI dashboards and Power Automate workflows turning operational data into decisions for senior stakeholders.</li>
+            <li>Shipped agentic AI chatbots and LLM-powered reporting tools using OpenAI APIs on top of the existing PHP/Python stack.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tag highlight">Python</span>
-            <span class="tag highlight">Adobe Commerce</span>
-            <span class="tag highlight">AWS</span>
-            <span class="tag highlight">Docker</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">ERP</span>
-            <span class="tag teal">OpenAI</span>
-            <span class="tag amber">Power BI</span>
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
-          </div>
+          <p class="commit-files"><span>10 areas changed</span> · Python, Adobe Commerce, AWS, Docker, CI/CD, ERP, OpenAI, Power BI, PHP, MySQL</p>
         </div>
       </div>
 
-      <div class="exp-card">
-        <div class="exp-left-bar"></div>
-        <div>
-          <p class="exp-company">Pinpoint Design · Leeds, UK</p>
-          <div class="exp-header">
-            <p class="exp-role">Backend Developer / DevOps Engineer</p>
-            <div class="exp-meta">
-              <span class="exp-date">Feb 2020 — Nov 2020</span>
-              <span class="exp-loc">Full-time</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Established CI/CD pipelines and DevOps practices from scratch — reducing manual deployment steps by over 60%.</li>
+      <div class="commit">
+        <div class="commit-bar">
+          <span class="commit-hash">4b7e2a1</span>
+          <span class="commit-meta">Feb 2020 — Nov 2020 · Leeds, UK · Full-time</span>
+        </div>
+        <div class="commit-body">
+          <p class="commit-subject">Backend Developer / DevOps Engineer <span class="company">@ Pinpoint Design</span></p>
+          <ul class="commit-diff">
+            <li>Established CI/CD pipelines and DevOps practice from scratch, cutting manual deployment steps by over 60%.</li>
             <li>Optimised backend APIs and database queries for scalability, cutting average response times significantly.</li>
-            <li>Developed custom integrations connecting the e-commerce platform with third-party fulfilment and inventory systems.</li>
+            <li>Built custom integrations connecting the e-commerce platform to third-party fulfilment and inventory systems.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tag">PHP</span>
-            <span class="tag">Jenkins</span>
-            <span class="tag">Docker</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">REST APIs</span>
-          </div>
+          <p class="commit-files"><span>5 areas changed</span> · PHP, Jenkins, Docker, MySQL, REST APIs</p>
         </div>
       </div>
 
-      <div class="exp-card">
-        <div class="exp-left-bar"></div>
-        <div>
-          <p class="exp-company">Tech Mahindra · Chennai, India</p>
-          <div class="exp-header">
-            <p class="exp-role">Senior Software Engineer</p>
-            <div class="exp-meta">
-              <span class="exp-date">Jan 2017 — Oct 2019</span>
-              <span class="exp-loc">Full-time</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
-            <li>Led software development teams on large-scale enterprise software projects across multiple client accounts.</li>
+      <div class="commit">
+        <div class="commit-bar">
+          <span class="commit-hash">1a09fc6</span>
+          <span class="commit-meta">Jan 2017 — Oct 2019 · Chennai, India · Full-time</span>
+        </div>
+        <div class="commit-body">
+          <p class="commit-subject">Senior Software Engineer <span class="company">@ Tech Mahindra</span></p>
+          <ul class="commit-diff">
+            <li>Led software development teams on large-scale enterprise projects across multiple client accounts.</li>
             <li>Mentored junior developers — <strong>3 promoted to senior roles</strong> during this period.</li>
-            <li>Delivered scalable backend systems using PHP, MySQL, and GitHub-based workflows with rigorous code review processes.</li>
+            <li>Delivered scalable backend systems in PHP and MySQL with rigorous code review processes.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tag">PHP</span>
-            <span class="tag">MySQL</span>
-            <span class="tag">GitHub</span>
-            <span class="tag">Agile</span>
-          </div>
+          <p class="commit-files"><span>4 areas changed</span> · PHP, MySQL, GitHub, Agile</p>
         </div>
       </div>
 
-      <div class="exp-card">
-        <div class="exp-left-bar" style="background: var(--border);"></div>
-        <div>
-          <p class="exp-company">Tychon Solution USA · Chennai, India</p>
-          <div class="exp-header">
-            <p class="exp-role">Software Programmer</p>
-            <div class="exp-meta">
-              <span class="exp-date">Sep 2012 — Dec 2016</span>
-              <span class="exp-loc">Full-time</span>
-            </div>
-          </div>
-          <ul class="exp-bullets">
+      <div class="commit">
+        <div class="commit-bar">
+          <span class="commit-hash">e6d41f0</span>
+          <span class="commit-meta">Sep 2012 — Dec 2016 · Chennai, India · Full-time</span>
+        </div>
+        <div class="commit-body">
+          <p class="commit-subject">Software Programmer <span class="company">@ Tychon Solution USA</span></p>
+          <ul class="commit-diff">
             <li>Developed and maintained enterprise applications in C#, ASP.NET, and SQL Server for US-based clients.</li>
-            <li>Collaborated in Agile/Scrum teams, contributing to feature development, bug resolution, and code quality improvements.</li>
+            <li>Collaborated in Agile/Scrum teams on feature development, bug resolution, and code quality.</li>
           </ul>
-          <div class="exp-tech">
-            <span class="tag">C#</span>
-            <span class="tag">ASP.NET</span>
-            <span class="tag">SQL Server</span>
-            <span class="tag">JavaScript</span>
-          </div>
+          <p class="commit-files"><span>4 areas changed</span> · C#, ASP.NET, SQL Server, JavaScript</p>
         </div>
       </div>
 
     </div>
   </div>
 
-  <!-- ACHIEVEMENTS -->
-  <div class="section" id="achievements">
+  <!-- RESULTS -->
+  <div class="section" id="results">
     <div class="section-head">
-      <span class="section-tag">05 / results</span>
+      <p class="section-path">~ <span class="sep">/</span> results</p>
       <h2>Key Results</h2>
-      <div class="section-rule"></div>
     </div>
-    <div class="ach-grid">
-      <div class="ach-card"><span class="ach-icon">📉</span><span class="ach-val">40%</span><p class="ach-desc">Reduction in operational overhead via Python AI automation</p></div>
-      <div class="ach-card"><span class="ach-icon">⚡</span><span class="ach-val">50%</span><p class="ach-desc">Faster deployment cycles after CI/CD pipeline implementation</p></div>
-      <div class="ach-card"><span class="ach-icon">💰</span><span class="ach-val">35%</span><p class="ach-desc">Revenue uplift from commerce platform solutions delivered</p></div>
-      <div class="ach-card"><span class="ach-icon">🔗</span><span class="ach-val">15+</span><p class="ach-desc">ERP, payment, and third-party API integrations shipped</p></div>
-      <div class="ach-card"><span class="ach-icon">🛒</span><span class="ach-val">10K+</span><p class="ach-desc">Daily transactions on architected production platforms</p></div>
-      <div class="ach-card"><span class="ach-icon">👥</span><span class="ach-val">5–8</span><p class="ach-desc">Developers led across distributed, cross-timezone teams</p></div>
-      <div class="ach-card"><span class="ach-icon">🎓</span><span class="ach-val">10+</span><p class="ach-desc">Junior developers mentored; 3 promoted to senior</p></div>
-      <div class="ach-card"><span class="ach-icon">🟢</span><span class="ach-val">99.9%</span><p class="ach-desc">Platform uptime maintained across production e-commerce</p></div>
+    <div class="metrics">
+      <div class="metric"><div class="metric-val accent">40%</div><div class="metric-lbl">Reduction in operational overhead via Python AI automation</div></div>
+      <div class="metric"><div class="metric-val accent">50%</div><div class="metric-lbl">Faster deployment cycles after CI/CD implementation</div></div>
+      <div class="metric"><div class="metric-val accent">35%</div><div class="metric-lbl">Revenue uplift from commerce platforms delivered</div></div>
+      <div class="metric"><div class="metric-val">15+</div><div class="metric-lbl">ERP, payment, and third-party integrations shipped</div></div>
+      <div class="metric"><div class="metric-val">10K+</div><div class="metric-lbl">Daily transactions on architected production platforms</div></div>
+      <div class="metric"><div class="metric-val">5–8</div><div class="metric-lbl">Developers led across distributed, cross-timezone teams</div></div>
+      <div class="metric"><div class="metric-val">10+</div><div class="metric-lbl">Junior developers mentored; 3 promoted to senior</div></div>
+      <div class="metric"><div class="metric-val accent">99.9%</div><div class="metric-lbl">Platform uptime maintained in production</div></div>
     </div>
   </div>
 
-  <!-- CERTS + EDU -->
-  <div class="section" id="certs">
+  <!-- CREDENTIALS -->
+  <div class="section" id="credentials">
     <div class="section-head">
-      <span class="section-tag">06 / credentials</span>
+      <p class="section-path">~ <span class="sep">/</span> credentials</p>
       <h2>Certifications &amp; Education</h2>
-      <div class="section-rule"></div>
     </div>
     <div class="two-col">
       <div>
-        <p class="col-heading">Certifications</p>
-        <div class="cert-list">
-          <div class="cert-item">
-            <div class="cert-icon">🏅</div>
-            <div>
-              <p class="cert-name">Adobe Certified Magento Commerce Developer</p>
-              <p class="cert-sub">Adobe · Active</p>
-            </div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-icon">🤖</div>
-            <div>
-              <p class="cert-name">IBM Artificial Intelligence Fundamentals</p>
-              <p class="cert-sub">IBM · Certified</p>
-            </div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-icon">💻</div>
-            <div>
-              <p class="cert-name">Certified Software Development Associate (CSDA)</p>
-              <p class="cert-sub">IEEE Computer Society</p>
-            </div>
-          </div>
-          <div class="cert-item">
-            <div class="cert-icon">☁️</div>
-            <div>
-              <p class="cert-name">Microsoft Professional Programme — DevOps</p>
-              <p class="cert-sub">Microsoft</p>
-            </div>
-          </div>
+        <p class="subgroup-label">Certifications</p>
+        <div class="cred-list">
+          <div class="cred-item"><span class="cred-name">Adobe Certified Magento Commerce Developer</span><span class="cred-org">Adobe</span></div>
+          <div class="cred-item"><span class="cred-name">IBM Artificial Intelligence Fundamentals</span><span class="cred-org">IBM</span></div>
+          <div class="cred-item"><span class="cred-name">Certified Software Development Associate</span><span class="cred-org">IEEE CS</span></div>
+          <div class="cred-item"><span class="cred-name">Professional Programme — DevOps</span><span class="cred-org">Microsoft</span></div>
         </div>
       </div>
       <div>
-        <p class="col-heading">Education</p>
-        <div class="edu-list">
-          <div class="edu-item">
-            <div class="edu-icon">🎓</div>
-            <div>
-              <p class="cert-name">Master of Computer Applications (M.C.A.)</p>
-              <p class="edu-sub">Anna University, India · 2009–2012</p>
-            </div>
-          </div>
-          <div class="edu-item">
-            <div class="edu-icon">📘</div>
-            <div>
-              <p class="cert-name">B.Sc. — Electronics &amp; Communication Engineering</p>
-              <p class="edu-sub">AVC College, India · 2006–2009</p>
-            </div>
-          </div>
+        <p class="subgroup-label">Education</p>
+        <div class="cred-list">
+          <div class="cred-item"><span class="cred-name">Master of Computer Applications (M.C.A.)</span><span class="cred-org">2009–2012</span></div>
+          <div class="cred-item"><span class="cred-name">B.Sc. Electronics &amp; Communication Engineering</span><span class="cred-org">2006–2009</span></div>
         </div>
       </div>
     </div>
@@ -1360,94 +924,30 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- CONTACT -->
   <div class="section" id="contact">
     <div class="section-head">
-      <span class="section-tag">07 / contact</span>
+      <p class="section-path">~ <span class="sep">/</span> contact</p>
       <h2>Get in Touch</h2>
-      <div class="section-rule"></div>
     </div>
-    <div class="contact-block">
-      <div>
-        <h3>Let's build something great together.</h3>
-        <p>Open to interesting engineering roles, collaborations, and technical conversations. Based in Leeds, UK — working globally.</p>
+    <div class="contact-panel">
+      <div class="contact-bar">
+        <span class="contact-dots"><span></span><span></span><span></span></span>
+        <span class="contact-title">contact.sh</span>
       </div>
-      <div class="contact-chips">
-        <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank" class="chip">💼 LinkedIn</a>
-        <a href="mailto:gkmbala@gmail.com" class="chip">📧 gkmbala@gmail.com</a>
-        <a href="https://github.com/gkmbala" target="_blank" class="chip">🐙 GitHub</a>
-        <span class="chip" style="cursor:default;">📍 Leeds, UK</span>
+      <div class="contact-body">
+        <div>
+          <h3>Let's build something great together.</h3>
+          <p>Open to interesting engineering roles, collaborations, and technical conversations. Based in Leeds, UK — working globally.</p>
+        </div>
+        <div class="contact-chips">
+          <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank" class="chip">LinkedIn ↗</a>
+          <a href="mailto:gkmbala@gmail.com" class="chip">gkmbala@gmail.com</a>
+          <a href="https://github.com/gkmbala" target="_blank" class="chip">GitHub ↗</a>
+          <span class="chip" style="cursor:default;">Leeds, UK</span>
+        </div>
       </div>
     </div>
   </div>
-  <!-- 08 / REAL-TIME PYTHON PROJECT -->
 
-<div class="section" id="realtime-work">
-  <div class="section-head">
-    <span class="section-tag">08 / python &amp; real-time</span>
-    <h2>Real-Time Chat &amp; Automation </h2>
-	<h4>-(Here Bottom Right)-</h4>
-    <div class="section-rule"></div>
-  </div>
-<div class="ai-card">
-  <span class="ai-icon">💬</span>
-  <h3 class="ai-title">Real-Time Chatbot</h3>
-  <p class="ai-desc">
-    Developed a real-time website chatbot using JavaScript and a Python
-    backend exposed through REST APIs. Visitor messages are securely
-    submitted to the Python service, processed server-side, and returned
-    dynamically to the browser to provide an interactive conversational
-    experience.
-  </p>
-  <div class="tags" style="margin-top:0.6rem">
-    <span class="tag highlight">Python</span>
-    <span class="tag">REST API</span>
-    <span class="tag">JavaScript</span>
-    <span class="tag">JSON</span>
-  </div>
-</div>
-
-<div class="ai-card">
-  <span class="ai-icon">📧</span>
-  <h3 class="ai-title">Visitor Notification &amp; Automation</h3>
-  <p class="ai-desc">
-    Built a Python API workflow that captures visitor name, email and
-    company information when a chat session begins. The frontend submits
-    the visitor details to a dedicated backend endpoint, enabling automated
-    email and notification workflows without exposing backend credentials
-    in the browser.
-  </p>
-  <div class="tags" style="margin-top:0.6rem">
-    <span class="tag teal">Python</span>
-    <span class="tag">REST API</span>
-    <span class="tag">Email</span>
-    <span class="tag">Automation</span>
-  </div>
-</div>
-
-<div class="ai-card">
-  <span class="ai-icon">🔐</span>
-  <h3 class="ai-title">Validation, CAPTCHA &amp; API Security</h3>
-  <p class="ai-desc">
-    Implemented client-side validation, CAPTCHA verification and controlled
-    API requests before creating a chat session. Visitor registration and
-    message processing are handled as separate API operations, with
-    validation, error handling and fallback responses designed to keep the
-    chat experience reliable.
-  </p>
-  <div class="tags" style="margin-top:0.6rem">
-    <span class="tag">JavaScript</span>
-    <span class="tag">CAPTCHA</span>
-    <span class="tag">REST APIs</span>
-    <span class="tag">Security</span>
-    <span class="tag">Error Handling</span>
-  </div>
-</div>
-
-
-  </div>
-</div>
-
-
-
-</div><!-- /container -->
+</div><!-- /wrap -->
 
 <!-- FOOTER -->
 <footer>
@@ -1457,7 +957,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
 
 <!-- CHAT FAB -->
 <button id="chat-fab" onclick="toggleChat()" title="Chat with Balaji's portfolio AI">
-  💬
+  ▸_
   <span class="fab-ping"></span>
 </button>
 
@@ -1477,7 +977,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
   <!-- Step 1: Intro form -->
   <div id="chat-step-intro">
     <div class="chat-welcome">
-      👋 <strong>Hey there!</strong>.
+      👋 <strong>Hey there!</strong> Quick check before we chat.
     </div>
     <div>
       <label class="flabel" for="v-name">Your name</label>
@@ -1490,14 +990,14 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
       <p class="ferr" id="err-email">Please enter a valid email</p>
     </div>
     <div>
-      <label class="flabel" for="v-co">Company <span style="color:var(--subtle)">(optional)</span></label>
+      <label class="flabel" for="v-co">Company <span style="color:var(--ink-3)">(optional)</span></label>
       <input class="finput" id="v-co" type="text" placeholder="e.g. Acme Ltd" />
     </div>
     <div>
       <label class="flabel">Quick maths check</label>
       <div class="captcha-row">
         <span class="captcha-q" id="cap-q"></span>
-        <span style="font-family:var(--mono);font-size:0.78rem;color:var(--muted)">=</span>
+        <span style="font-family:var(--mono);font-size:0.78rem;color:var(--ink-3)">=</span>
         <input class="captcha-in" id="cap-ans" type="number" placeholder="?" />
         <button class="captcha-refresh" onclick="newCap()" title="New question">↻</button>
       </div>
@@ -1513,7 +1013,7 @@ h1 { animation: fadeUp 0.45s 0.12s both; }
     </div>
     <div class="chat-msgs" id="chat-msgs"></div>
     <div class="chat-sugs" id="chat-sugs">
-	  <span class="sug" onclick="sendSug(this)">What's Balaji's tech stack?</span>
+      <span class="sug" onclick="sendSug(this)">What's Balaji's tech stack?</span>
       <span class="sug" onclick="sendSug(this)">Tell me about his AI experience</span>
       <span class="sug" onclick="sendSug(this)">What's his Adobe Commerce experience?</span>
       <span class="sug" onclick="sendSug(this)">What are his key achievements?</span>
@@ -1544,18 +1044,15 @@ const API = 'https://gkmbala.pythonanywhere.com';
    POSTing to the Google Form's pre-filled
    response endpoint. Works from a static site
    with no backend involved.
-
-   ⚠️ Replace GOOGLE_FORM_URL and the entry.XXXXXXXXX
-   IDs below with your own — see setup steps.
 ========================================== */
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdqZscZboDPQl4EUJ-d_l1t7JksqFUQl0aMtF9kJ60C2XbXfw/formResponse';
 const GFORM_ENTRIES = {
-  name:    'entry.1918405749', // Name (Short answer)
-  email:   'entry.1715580274', // Email (Short answer)
-  company: 'entry.503769240', // Company (Short answer)
-  type:    'entry.1920448748', // Type: "registration" or "message" (Short answer)
-  message: 'entry.702082265', // Visitor message (Paragraph)
-  reply:   'entry.1287465195'  // Bot reply (Paragraph)
+  name:    'entry.1918405749',
+  email:   'entry.1715580274',
+  company: 'entry.503769240',
+  type:    'entry.1920448748',
+  message: 'entry.702082265',
+  reply:   'entry.1287465195'
 };
 
 function logToGoogleForm(fields) {
@@ -1564,8 +1061,6 @@ function logToGoogleForm(fields) {
     Object.keys(GFORM_ENTRIES).forEach(key => {
       fd.append(GFORM_ENTRIES[key], fields[key] !== undefined ? fields[key] : '');
     });
-    // no-cors: Google Forms doesn't send CORS headers back, so the
-    // response is opaque — this still submits the data successfully.
     fetch(GOOGLE_FORM_URL, { method: 'POST', mode: 'no-cors', body: fd }).catch(() => {});
   } catch (e) { /* fail silently — never block the chat UI on logging */ }
 }
@@ -1577,20 +1072,17 @@ function toggleMob(btn) {
   links.style.display = open ? 'none' : 'flex';
   if (!open) {
     Object.assign(links.style, {
-      position:'absolute', top:'58px', left:'0', right:'0',
-      background:'rgba(255,255,255,0.97)', padding:'0.75rem 1.2rem 1rem',
+      position:'absolute', top:'56px', left:'0', right:'0',
+      background:'rgba(245,245,240,0.98)', padding:'0.75rem 1.2rem 1rem',
       flexDirection:'column', gap:'0.1rem',
-      borderBottom:'1px solid var(--border)',
-      boxShadow:'0 8px 24px rgba(0,0,0,0.08)'
+      borderBottom:'1px solid var(--line)',
+      boxShadow:'0 8px 24px rgba(20,23,27,0.08)'
     });
   }
 }
 
 /* ==========================================
    CHAT API
-   Sends visitor messages to PythonAnywhere
-   and displays the response inside the
-   portfolio chat widget.
 ========================================== */
 let capAns = 0;
 function rand(a,b) { return Math.floor(Math.random()*(b-a+1))+a; }
@@ -1619,9 +1111,7 @@ function toggleChat() {
 }
 
 /*=================================================
-     VISITOR REGIS*RATION
-     Collect visitor detail* before chat.
-     Used for follow*up communication.
+     VISITOR REGISTRATION
 ================================================== */
 let vName='',vEmail='',vCo='';
 
@@ -1712,74 +1202,59 @@ function sendSug(el) {
 }
 
 /* ============================================================
-   REPLY ENGINE — this is the only source of chat replies on a
-   static site (no backend to call). Keyword-matches the visitor's
-   message against every section of the résumé/portfolio above.
+   REPLY ENGINE — fallback source of chat replies on a static
+   site (no backend). Keyword-matches the visitor's message
+   against every section of the résumé/portfolio above.
    ============================================================ */
 function fallback(q) {
   const s = q.toLowerCase();
-
   const has = (...words) => words.some(w => s.includes(w));
 
-  // Greetings / small talk
   if (has('hello','hi ','hi there','hey','good morning','good afternoon','good evening') || s.trim()==='hi')
     return `Hey! 👋 Ask me about Balaji's tech stack, AI/automation work, Adobe Commerce experience, achievements, or how to get in touch.`;
 
   if (has('thank','thanks','cheers'))
     return `You're welcome! Anything else you'd like to know about Balaji's background?`;
 
-  // Tech stack
   if (has('stack','languages','tools','technolog'))
     return `Balaji's core stack: <strong>Python, PHP, JavaScript/TypeScript, C#</strong> on the backend · <strong>Adobe Commerce / Magento 2.x, Django, Flask, Laravel</strong> for frameworks · <strong>AWS, Docker, CI/CD (GitHub Actions/Jenkins)</strong> for infrastructure · <strong>MySQL, PostgreSQL, MongoDB, Redis</strong> for data · and <strong>OpenAI APIs / Power BI</strong> for AI and analytics.`;
 
-  // AI / automation
   if (has('ai','automation','agentic','chatbot','llm','openai','langchain','rag'))
     return `Balaji builds agentic AI pipelines with OpenAI function calling and LangChain, RAG-powered chatbots over product/order data, Power Automate workflows, and Python-based ops automation — cutting operational overhead by <strong>40%</strong> in production.`;
 
-  // Adobe Commerce / Magento
   if (has('adobe','magento','commerce','e-commerce','ecommerce'))
     return `14+ years working with Adobe Commerce / Magento 2.x — an <strong>Adobe Certified Magento Commerce Developer</strong>. He's architected multi-store platforms integrated with 15+ ERP, payment, and logistics systems, processing 10K+ daily transactions at 99.9% uptime.`;
 
-  // Cloud / DevOps
   if (has('aws','cloud','devops','docker','ci/cd','cicd','pipeline','deploy'))
     return `On the infra side: <strong>AWS, Azure, Docker, Terraform, Ansible</strong>, with CI/CD pipelines built on GitHub Actions and Jenkins. His pipeline work at Lencarta cut deployment cycles by <strong>50%</strong>.`;
 
-  // Data / BI
   if (has('data','sql','power bi','powerbi','analytics','reporting','dashboard'))
     return `Balaji builds data pipelines across MySQL/PostgreSQL and ERP systems with Python/Pandas/SQLAlchemy, feeding automated Power BI dashboards and LLM-generated plain-English reports delivered to Slack, email, or BI tools.`;
 
-  // Achievements / results
   if (has('achieve','result','impact','metric','number'))
     return `Key results: <strong>40%</strong> reduction in ops overhead, <strong>50%</strong> faster deployments, <strong>35%</strong> revenue uplift, <strong>99.9%</strong> uptime, <strong>15+</strong> ERP/API integrations shipped, and <strong>10K+</strong> daily transactions on platforms he's architected.`;
 
-  // Experience / roles / companies
   if (has('experience','background','career','work history','lencarta','pinpoint','tech mahindra','tychon'))
     return `Balaji has 14+ years of experience: <strong>Technology Specialist Lead at Lencarta Ltd</strong> (Dec 2020–present, Leeds UK), Backend/DevOps Engineer at Pinpoint Design, Senior Software Engineer at Tech Mahindra, and Software Programmer at Tychon Solution USA — spanning e-commerce, enterprise software, and DevOps.`;
 
-  // Leadership / team
   if (has('lead','team','manage','mentor'))
     return `He leads distributed engineering teams of 5–8 developers across time zones, and has mentored 10+ junior developers, three of whom were promoted to senior roles.`;
 
-  // Certifications / education
   if (has('cert','education','degree','qualif','study','university','college'))
     return `Certifications: Adobe Certified Magento Commerce Developer, IBM AI Fundamentals, IEEE CSDA, and Microsoft DevOps Professional Programme. Education: M.C.A. from Anna University and a B.Sc. in Electronics &amp; Communication Engineering from AVC College.`;
 
-  // Location / remote / availability
   if (has('location','based','where','remote','relocat','visa','sponsor'))
     return `Balaji is based in <strong>Leeds, United Kingdom</strong> and is open to on-site, hybrid, or remote roles — as well as new opportunities more broadly.`;
 
   if (has('available','notice','start date','when can'))
     return `For availability and notice period specifics, it's best to ask Balaji directly — reach him at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.`;
 
-  // Hiring / contact
   if (has('hire','contact','reach','email','linkedin','github','get in touch'))
     return `Best way to reach Balaji: 💼 <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank">LinkedIn</a>, 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>, or 🐙 <a href="https://github.com/gkmbala" target="_blank">GitHub</a>. He's open to new roles in Leeds/UK or remote.`;
 
-  // Salary / rate (deflect politely rather than invent numbers)
   if (has('salary','rate','day rate','compensation','pay'))
     return `Compensation is best discussed directly with Balaji — drop him a note at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a> and he'll get back to you.`;
 
-  // Meta / about the widget itself
   if (has('who are you','what are you','are you real','are you ai','bot'))
     return `I'm an AI assistant built to answer questions about Balaji's skills and experience while he's away — for anything I can't answer, reach out to him directly at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.`;
 
