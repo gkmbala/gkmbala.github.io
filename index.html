@@ -1206,58 +1206,853 @@ function sendSug(el) {
    against every section of the résumé/portfolio above.
    ============================================================ */
 function fallback(q) {
-  const s = q.toLowerCase();
+  const s = q.toLowerCase().trim();
   const has = (...words) => words.some(w => s.includes(w));
 
-  if (has('hello','hi ','hi there','hey','good morning','good afternoon','good evening') || s.trim()==='hi')
-    return `Hey! 👋 Ask me about Balaji's tech stack, AI/automation work, Adobe Commerce experience, achievements, or how to get in touch.`;
+  // ------------------------------------------------------------
+  // GREETING
+  // ------------------------------------------------------------
+  if (
+    has(
+      'hello',
+      'hi ',
+      'hi there',
+      'hey',
+      'good morning',
+      'good afternoon',
+      'good evening'
+    ) || s === 'hi'
+  ) {
+    return `Hey! 👋 I'm Balaji's AI profile assistant. Ask me about his <strong>Agentic AI, Agentic Commerce, Adobe Commerce/Magento, Python, APIs, cloud architecture, automation, or enterprise integrations</strong>.`;
+  }
 
-  if (has('thank','thanks','cheers'))
-    return `You're welcome! Anything else you'd like to know about Balaji's background?`;
+  // ------------------------------------------------------------
+  // THANKS
+  // ------------------------------------------------------------
+  if (has('thank', 'thanks', 'cheers')) {
+    return `You're welcome! 🤝 Ask me anything about Balaji's <strong>AI, Agentic Commerce, Adobe Commerce, cloud, API, or engineering experience</strong>.`;
+  }
 
-  if (has('stack','languages','tools','technolog'))
-    return `Balaji's core stack: <strong>Python, PHP, JavaScript/TypeScript, C#</strong> on the backend · <strong>Adobe Commerce / Magento 2.x, Django, Flask, Laravel</strong> for frameworks · <strong>AWS, Docker, CI/CD (GitHub Actions/Jenkins)</strong> for infrastructure · <strong>MySQL, PostgreSQL, MongoDB, Redis</strong> for data · and <strong>OpenAI APIs / Power BI</strong> for AI and analytics.`;
+  // ------------------------------------------------------------
+  // CORE TECH STACK
+  // ------------------------------------------------------------
+  if (
+    has(
+      'stack',
+      'tech stack',
+      'technology stack',
+      'languages',
+      'tools',
+      'technologies',
+      'technology'
+    )
+  ) {
+    return `
+      Balaji's technology stack spans <strong>Full-Stack Engineering, Agentic AI, Agentic Commerce, Adobe Commerce and Enterprise Integration</strong>.
 
-  if (has('ai','automation','agentic','chatbot','llm','openai','langchain','rag'))
-    return `Balaji builds agentic AI pipelines with OpenAI function calling and LangChain, RAG-powered chatbots over product/order data, Power Automate workflows, and Python-based ops automation — cutting operational overhead by <strong>40%</strong> in production.`;
+      <br><br>
 
-  if (has('adobe','magento','commerce','e-commerce','ecommerce'))
-    return `14+ years working with Adobe Commerce / Magento 2.x — an <strong>Adobe Certified Magento Commerce Developer</strong>. He's architected multi-store platforms integrated with 15+ ERP, payment, and logistics systems, processing 10K+ daily transactions at 99.9% uptime.`;
+      <strong>Languages:</strong>
+      Python, PHP, JavaScript, TypeScript, SQL
 
-  if (has('aws','cloud','devops','docker','ci/cd','cicd','pipeline','deploy'))
-    return `On the infra side: <strong>AWS, Azure, Docker, Terraform, Ansible</strong>, with CI/CD pipelines built on GitHub Actions and Jenkins. His pipeline work at Lencarta cut deployment cycles by <strong>50%</strong>.`;
+      <br><br>
 
-  if (has('data','sql','power bi','powerbi','analytics','reporting','dashboard'))
-    return `Balaji builds data pipelines across MySQL/PostgreSQL and ERP systems with Python/Pandas/SQLAlchemy, feeding automated Power BI dashboards and LLM-generated plain-English reports delivered to Slack, email, or BI tools.`;
+      <strong>AI / Agentic AI:</strong>
+      Python AI applications, LLM APIs, OpenAI APIs, tool/function calling,
+      RAG, agent workflows, structured outputs, prompt engineering,
+      AI automation, conversational AI and AI-powered commerce workflows.
 
-  if (has('achieve','result','impact','metric','number'))
-    return `Key results: <strong>40%</strong> reduction in ops overhead, <strong>50%</strong> faster deployments, <strong>35%</strong> revenue uplift, <strong>99.9%</strong> uptime, <strong>15+</strong> ERP/API integrations shipped, and <strong>10K+</strong> daily transactions on platforms he's architected.`;
+      <br><br>
 
-  if (has('experience','background','career','work history','lencarta','pinpoint','tech mahindra','tychon'))
-    return `Balaji has 14+ years of experience: <strong>Technology Specialist Lead at Lencarta Ltd</strong> (Dec 2020–present, Leeds UK), Backend/DevOps Engineer at Pinpoint Design, Senior Software Engineer at Tech Mahindra, and Software Programmer at Tychon Solution USA — spanning e-commerce, enterprise software, and DevOps.`;
+      <strong>Agentic Commerce:</strong>
+      Product discovery, catalogue search, inventory-aware workflows,
+      cart operations, commerce APIs, tool-calling agents,
+      merchant/product knowledge, RAG-based product assistance,
+      AI shopping assistants and integration between AI agents and commerce platforms.
 
-  if (has('lead','team','manage','mentor'))
-    return `He leads distributed engineering teams of 5–8 developers across time zones, and has mentored 10+ junior developers, three of whom were promoted to senior roles.`;
+      <br><br>
 
-  if (has('cert','education','degree','qualif','study','university','college'))
-    return `Certifications: Adobe Certified Magento Commerce Developer, IBM AI Fundamentals, IEEE CSDA, and Microsoft DevOps Professional Programme. Education: M.C.A. from Anna University and a B.Sc. in Electronics &amp; Communication Engineering from AVC College.`;
+      <strong>Commerce:</strong>
+      Adobe Commerce / Magento 2.x, B2B/B2C eCommerce,
+      custom modules, checkout, catalogue, pricing, promotions,
+      multi-store architecture, REST APIs and third-party integrations.
 
-  if (has('location','based','where','remote','relocat','visa','sponsor'))
-    return `Balaji is based in <strong>Leeds, United Kingdom</strong> and is open to on-site, hybrid, or remote roles — as well as new opportunities more broadly.`;
+      <br><br>
 
-  if (has('available','notice','start date','when can'))
-    return `For availability and notice period specifics, it's best to ask Balaji directly — reach him at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.`;
+      <strong>Backend / APIs:</strong>
+      Python, PHP, FastAPI, Flask, REST APIs, API integration,
+      ERP integration, payment integration, inventory and order workflows.
 
-  if (has('hire','contact','reach','email','linkedin','github','get in touch'))
-    return `Best way to reach Balaji: 💼 <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank">LinkedIn</a>, 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>, or 🐙 <a href="https://github.com/gkmbala" target="_blank">GitHub</a>. He's open to new roles in Leeds/UK or remote.`;
+      <br><br>
 
-  if (has('salary','rate','day rate','compensation','pay'))
-    return `Compensation is best discussed directly with Balaji — drop him a note at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a> and he'll get back to you.`;
+      <strong>Cloud / DevOps:</strong>
+      AWS, Azure, Docker, CI/CD, GitHub Actions, Jenkins,
+      cloud deployment, automation and production operations.
 
-  if (has('who are you','what are you','are you real','are you ai','bot'))
-    return `I'm an AI assistant built to answer questions about Balaji's skills and experience while he's away — for anything I can't answer, reach out to him directly at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.`;
+      <br><br>
 
-  return `Good question! For anything I can't answer directly, you can reach Balaji at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a> or 💼 <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank">LinkedIn</a>.`;
+      <strong>Data:</strong>
+      MySQL, PostgreSQL, MongoDB, Redis, SQL,
+      Python/Pandas and Power BI.
+
+      <br><br>
+
+      <strong>Architecture:</strong>
+      API-first systems, enterprise integration, scalable eCommerce,
+      cloud-native services, AI-enabled workflows and automation.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // AI / AGENTIC AI
+  // ------------------------------------------------------------
+  if (
+    has(
+      'ai',
+      'artificial intelligence',
+      'agentic ai',
+      'agent',
+      'agents',
+      'llm',
+      'generative ai',
+      'genai',
+      'openai',
+      'chatbot',
+      'rag',
+      'retrieval',
+      'function calling',
+      'tool calling',
+      'mcp',
+      'model context protocol',
+      'automation'
+    )
+  ) {
+    return `
+      Balaji is extending his enterprise engineering background into
+      <strong>Agentic AI and LLM-powered applications</strong>.
+
+      <br><br>
+
+      His current AI stack includes:
+
+      <ul>
+        <li><strong>Python</strong> for AI application and backend development</li>
+        <li><strong>LLM APIs</strong> for intelligent application workflows</li>
+        <li><strong>Tool / function calling</strong> so AI agents can execute real application actions</li>
+        <li><strong>RAG</strong> for grounding responses in product, policy and business knowledge</li>
+        <li><strong>Agent workflows</strong> for multi-step reasoning and task execution</li>
+        <li><strong>FastAPI</strong> for exposing AI and commerce services through APIs</li>
+        <li><strong>Structured outputs</strong> for reliable machine-readable agent responses</li>
+        <li><strong>AI automation</strong> for operational and business workflows</li>
+      </ul>
+
+      Rather than treating an LLM as only a chatbot, his approach is to connect
+      AI models with <strong>business data, APIs, commerce systems and executable tools</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // AGENTIC COMMERCE
+  // ------------------------------------------------------------
+  if (
+    has(
+      'agentic commerce',
+      'ai commerce',
+      'commerce agent',
+      'shopping agent',
+      'shopping assistant',
+      'ai shopping',
+      'agent commerce',
+      'commerce ai'
+    )
+  ) {
+    return `
+      <strong>Agentic Commerce</strong> is one of Balaji's current focus areas.
+
+      <br><br>
+
+      His approach combines his 14+ years of eCommerce and integration experience
+      with modern AI agent architectures.
+
+      <br><br>
+
+      A typical Agentic Commerce flow he is exploring is:
+
+      <br>
+
+      <strong>User → AI Agent → Product/Knowledge Retrieval → Commerce Tools →
+      Inventory/Pricing → Cart → Business APIs</strong>
+
+      <br><br>
+
+      The agent can understand a natural-language shopping request,
+      retrieve relevant product information, use tools to query catalogue or
+      inventory systems, and perform commerce actions through APIs.
+
+      <br><br>
+
+      His current learning/POC stack includes
+      <strong>Python, FastAPI, LLM APIs, RAG, tool/function calling,
+      product knowledge, commerce APIs and AI-driven workflows</strong>.
+
+      <br><br>
+
+      This builds naturally on his existing Adobe Commerce, catalogue,
+      inventory, ERP and API integration experience.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // MCP / MODERN AI INTEGRATION
+  // ------------------------------------------------------------
+  if (
+    has(
+      'mcp',
+      'model context protocol',
+      'mcp server',
+      'mcp servers',
+      'ai tools',
+      'agent tools'
+    )
+  ) {
+    return `
+      Balaji is exploring modern agent integration patterns including
+      <strong>tool-based AI architectures and Model Context Protocol (MCP)</strong>.
+
+      <br><br>
+
+      The key concept is to expose business capabilities as structured tools
+      that an AI agent can discover and invoke, rather than putting all business
+      logic inside the prompt.
+
+      <br><br>
+
+      In an Agentic Commerce scenario, examples could include tools such as:
+
+      <ul>
+        <li>Search products</li>
+        <li>Check inventory</li>
+        <li>Get product details</li>
+        <li>Check pricing</li>
+        <li>Add item to cart</li>
+        <li>Retrieve order information</li>
+        <li>Search product/policy knowledge</li>
+      </ul>
+
+      This connects AI agents with real commerce and enterprise capabilities
+      through controlled APIs and tools.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // RAG
+  // ------------------------------------------------------------
+  if (
+    has(
+      'rag',
+      'retrieval augmented generation',
+      'knowledge base',
+      'vector',
+      'embeddings',
+      'product knowledge',
+      'document search'
+    )
+  ) {
+    return `
+      Balaji uses <strong>RAG (Retrieval-Augmented Generation)</strong> as part
+      of his AI application architecture.
+
+      <br><br>
+
+      Instead of relying only on an LLM's training knowledge, the application
+      can retrieve relevant information from a controlled knowledge source
+      before generating a response.
+
+      <br><br>
+
+      For an Agentic Commerce application, this can include:
+
+      <ul>
+        <li>Product specifications</li>
+        <li>Product descriptions</li>
+        <li>Compatibility information</li>
+        <li>Delivery and return policies</li>
+        <li>Commerce FAQs</li>
+        <li>Business rules</li>
+      </ul>
+
+      The retrieved context is then supplied to the LLM so the agent can provide
+      more grounded answers.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // ADOBE COMMERCE / MAGENTO
+  // ------------------------------------------------------------
+  if (
+    has(
+      'adobe',
+      'magento',
+      'magento 2',
+      'adobe commerce',
+      'ecommerce',
+      'e-commerce',
+      'commerce platform'
+    )
+  ) {
+    return `
+      Balaji has <strong>14+ years of software engineering experience</strong>,
+      with deep hands-on expertise in <strong>Adobe Commerce / Magento 2.x</strong>.
+
+      <br><br>
+
+      His Adobe Commerce experience includes:
+
+      <ul>
+        <li>Custom Magento modules and extensions</li>
+        <li>Theme and frontend customisation</li>
+        <li>Hyvä-based commerce development</li>
+        <li>Catalogue and product workflows</li>
+        <li>Checkout and customer journeys</li>
+        <li>B2B and B2C commerce</li>
+        <li>Multi-store architecture</li>
+        <li>REST API integrations</li>
+        <li>ERP, payment, logistics and inventory integrations</li>
+        <li>Performance and scalability</li>
+        <li>Commerce automation</li>
+      </ul>
+
+      He is also an <strong>Adobe Certified Magento Commerce Developer</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // API / ENTERPRISE INTEGRATION
+  // ------------------------------------------------------------
+  if (
+    has(
+      'api',
+      'apis',
+      'integration',
+      'integrations',
+      'enterprise integration',
+      'erp',
+      'payment integration',
+      'microservices',
+      'rest',
+      'backend architecture'
+    )
+  ) {
+    return `
+      Enterprise integration is one of Balaji's strongest areas.
+
+      <br><br>
+
+      He designs and develops integrations between
+      <strong>eCommerce platforms, ERP systems, payment providers,
+      inventory platforms, logistics systems, CRM systems and external APIs</strong>.
+
+      <br><br>
+
+      His experience includes:
+
+      <ul>
+        <li>REST API design and consumption</li>
+        <li>ERP and commerce integration</li>
+        <li>Product and catalogue synchronisation</li>
+        <li>Inventory synchronisation</li>
+        <li>Order and customer data flows</li>
+        <li>Payment integrations</li>
+        <li>Third-party API orchestration</li>
+        <li>Backend automation</li>
+        <li>API performance and reliability</li>
+      </ul>
+
+      This integration background is particularly relevant to
+      <strong>Agentic Commerce</strong>, where AI agents need controlled access
+      to real business capabilities.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // PYTHON
+  // ------------------------------------------------------------
+  if (
+    has(
+      'python',
+      'fastapi',
+      'flask',
+      'python developer',
+      'python development'
+    )
+  ) {
+    return `
+      Python is an important part of Balaji's current technology direction.
+
+      <br><br>
+
+      He uses Python for <strong>backend APIs, AI/LLM applications,
+      automation, data processing, RAG experiments and Agentic Commerce POCs</strong>.
+
+      <br><br>
+
+      Relevant technologies include
+      <strong>FastAPI, Flask, Pandas, SQLAlchemy, REST APIs,
+      LLM APIs, tool calling and AI automation</strong>.
+
+      His Python work complements his long-standing PHP/Adobe Commerce
+      engineering background.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // TYPESCRIPT / JAVASCRIPT
+  // ------------------------------------------------------------
+  if (
+    has(
+      'typescript',
+      'type script',
+      'javascript',
+      'node',
+      'nodejs',
+      'frontend'
+    )
+  ) {
+    return `
+      Balaji has experience across <strong>JavaScript and TypeScript-oriented
+      application architectures</strong>, alongside his stronger backend
+      and commerce background.
+
+      <br><br>
+
+      TypeScript is particularly relevant to his current
+      <strong>Agentic Commerce</strong> direction because modern AI-native
+      commerce platforms commonly expose APIs, SDKs and agent tooling through
+      TypeScript/Node.js ecosystems.
+
+      <br><br>
+
+      His overall full-stack approach combines
+      <strong>Python/PHP backend engineering, JavaScript/TypeScript,
+      REST APIs, cloud services and AI integrations</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // CLOUD / DEVOPS
+  // ------------------------------------------------------------
+  if (
+    has(
+      'aws',
+      'azure',
+      'cloud',
+      'devops',
+      'docker',
+      'ci/cd',
+      'cicd',
+      'pipeline',
+      'deployment',
+      'terraform',
+      'github actions',
+      'jenkins'
+    )
+  ) {
+    return `
+      Balaji has hands-on experience with
+      <strong>AWS, Azure, Docker and CI/CD automation</strong>.
+
+      <br><br>
+
+      His DevOps/tooling experience includes:
+
+      <ul>
+        <li>AWS and Azure cloud environments</li>
+        <li>Docker</li>
+        <li>GitHub Actions</li>
+        <li>Jenkins</li>
+        <li>CI/CD pipelines</li>
+        <li>Infrastructure and deployment automation</li>
+        <li>Production troubleshooting and operations</li>
+      </ul>
+
+      His current AI/Agentic Commerce work also uses cloud-ready
+      API architectures designed to move from local POCs toward AWS deployment.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // DATA / ANALYTICS
+  // ------------------------------------------------------------
+  if (
+    has(
+      'data',
+      'sql',
+      'mysql',
+      'postgres',
+      'postgresql',
+      'mongodb',
+      'redis',
+      'power bi',
+      'powerbi',
+      'analytics',
+      'reporting',
+      'dashboard'
+    )
+  ) {
+    return `
+      Balaji works with <strong>MySQL, PostgreSQL, MongoDB, Redis and SQL-based
+      enterprise data</strong>.
+
+      <br><br>
+
+      He also uses <strong>Python/Pandas and Power BI</strong> for data
+      processing, reporting and business intelligence.
+
+      <br><br>
+
+      In AI applications, structured business data can be combined with
+      <strong>RAG and LLM workflows</strong> to turn operational data into
+      natural-language insights and automated actions.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // AUTOMATION
+  // ------------------------------------------------------------
+  if (
+    has(
+      'automation',
+      'power automate',
+      'workflow',
+      'business automation',
+      'process automation'
+    )
+  ) {
+    return `
+      Balaji has experience building <strong>business and operational automation</strong>
+      using Python, APIs, Power Automate and cloud services.
+
+      <br><br>
+
+      His current direction is extending traditional automation into
+      <strong>AI-powered automation</strong>, where an LLM/agent can understand
+      a request, retrieve context, select an appropriate tool and execute
+      a controlled business workflow.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // ARCHITECTURE
+  // ------------------------------------------------------------
+  if (
+    has(
+      'architecture',
+      'architect',
+      'technical architect',
+      'solution architect',
+      'system design',
+      'design'
+    )
+  ) {
+    return `
+      Balaji's architecture experience combines
+      <strong>eCommerce, APIs, enterprise integration, cloud and AI</strong>.
+
+      <br><br>
+
+      His current architecture direction includes:
+
+      <ul>
+        <li>API-first systems</li>
+        <li>Cloud-native services</li>
+        <li>Commerce platform integration</li>
+        <li>AI/LLM application architecture</li>
+        <li>RAG pipelines</li>
+        <li>Tool/function-calling agents</li>
+        <li>Enterprise system integration</li>
+        <li>Scalable and maintainable backend services</li>
+      </ul>
+
+      The goal is to connect AI capabilities with reliable enterprise systems,
+      rather than treating AI as an isolated chatbot.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // ACHIEVEMENTS / IMPACT
+  // ------------------------------------------------------------
+  if (
+    has(
+      'achieve',
+      'achievement',
+      'result',
+      'impact',
+      'metric',
+      'number',
+      'success'
+    )
+  ) {
+    return `
+      Balaji's experience includes measurable engineering and business impact
+      across eCommerce and enterprise platforms.
+
+      <br><br>
+
+      Key areas include <strong>platform scalability, API integration,
+      automation, deployment efficiency, operational improvements and
+      commerce performance</strong>.
+
+      <br><br>
+
+      His latest focus is extending these engineering capabilities into
+      <strong>Agentic AI and Agentic Commerce</strong>, including AI agents,
+      RAG, tool calling and AI-enabled commerce workflows.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // EXPERIENCE
+  // ------------------------------------------------------------
+  if (
+    has(
+      'experience',
+      'background',
+      'career',
+      'work history',
+      'lencarta',
+      'pinpoint',
+      'tech mahindra',
+      'tychon'
+    )
+  ) {
+    return `
+      Balaji has <strong>14+ years of software engineering experience</strong>
+      across eCommerce, enterprise integration, backend development,
+      cloud and automation.
+
+      <br><br>
+
+      His career includes:
+
+      <ul>
+        <li><strong>Technology Specialist Lead – Lencarta Ltd</strong>, Leeds, UK</li>
+        <li><strong>Backend / DevOps Engineer – Pinpoint Design</strong></li>
+        <li><strong>Senior Software Engineer – Tech Mahindra</strong></li>
+        <li><strong>Software Programmer – Tychon Solution, USA</strong></li>
+      </ul>
+
+      His technology journey has evolved from enterprise software and
+      eCommerce into <strong>cloud, AI automation and Agentic Commerce</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // LEADERSHIP
+  // ------------------------------------------------------------
+  if (
+    has(
+      'lead',
+      'leadership',
+      'team',
+      'manage',
+      'mentor',
+      'technical lead',
+      'tech lead'
+    )
+  ) {
+    return `
+      Balaji combines hands-on engineering with
+      <strong>technical leadership and mentoring</strong>.
+
+      <br><br>
+
+      His leadership experience includes working with distributed development
+      teams, reviewing technical solutions, mentoring developers,
+      coordinating integrations and translating business requirements into
+      technical implementations.
+
+      <br><br>
+
+      His current positioning is particularly suited to roles combining
+      <strong>hands-on engineering, technical leadership, architecture,
+      AI and enterprise integration</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // CERTIFICATIONS / EDUCATION
+  // ------------------------------------------------------------
+  if (
+    has(
+      'cert',
+      'certification',
+      'education',
+      'degree',
+      'qualification',
+      'study',
+      'university',
+      'college'
+    )
+  ) {
+    return `
+      Balaji's professional background includes:
+
+      <br><br>
+
+      <strong>Certifications / Programmes:</strong>
+      Adobe Certified Magento Commerce Developer, IBM AI Fundamentals,
+      IEEE CSDA and Microsoft DevOps Professional Programme.
+
+      <br><br>
+
+      <strong>Education:</strong>
+      M.C.A. from Anna University and B.Sc. in Electronics & Communication Engineering
+      from AVC College.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // LOCATION
+  // ------------------------------------------------------------
+  if (
+    has(
+      'location',
+      'based',
+      'where',
+      'remote',
+      'relocate',
+      'visa',
+      'sponsor'
+    )
+  ) {
+    return `
+      Balaji is based in <strong>Leeds, United Kingdom</strong> and is open to
+      suitable <strong>UK on-site, hybrid or remote opportunities</strong>.
+
+      <br><br>
+
+      He is currently positioned for senior engineering opportunities spanning
+      <strong>Full-Stack Engineering, Adobe Commerce, AI/LLM,
+      Agentic Commerce, cloud and technical architecture</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // AVAILABILITY
+  // ------------------------------------------------------------
+  if (
+    has(
+      'available',
+      'availability',
+      'notice',
+      'start date',
+      'when can'
+    )
+  ) {
+    return `
+      For availability and notice-period details, please contact Balaji directly
+      at 📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // CONTACT
+  // ------------------------------------------------------------
+  if (
+    has(
+      'hire',
+      'contact',
+      'reach',
+      'email',
+      'linkedin',
+      'github',
+      'get in touch'
+    )
+  ) {
+    return `
+      You can reach Balaji here:
+
+      <br><br>
+
+      💼 <a href="https://linkedin.com/in/balaji-kaliyaperumal-41620192" target="_blank">LinkedIn</a><br>
+      📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a><br>
+      🐙 <a href="https://github.com/gkmbala" target="_blank">GitHub</a><br>
+      🌐 <a href="https://gkmbala.github.io" target="_blank">Portfolio</a>
+
+      <br><br>
+
+      He's interested in opportunities across
+      <strong>Senior Software Engineering, Full-Stack Engineering,
+      AI/LLM, Agentic Commerce, Adobe Commerce, Cloud and Technical Architecture</strong>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // SALARY
+  // ------------------------------------------------------------
+  if (
+    has(
+      'salary',
+      'rate',
+      'day rate',
+      'compensation',
+      'pay'
+    )
+  ) {
+    return `
+      Compensation is best discussed directly with Balaji.
+      📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // BOT
+  // ------------------------------------------------------------
+  if (
+    has(
+      'who are you',
+      'what are you',
+      'are you real',
+      'are you ai',
+      'bot'
+    )
+  ) {
+    return `
+      I'm Balaji's <strong>AI profile assistant</strong> 🤖.
+
+      I provide information about his engineering background,
+      including <strong>Agentic AI, Agentic Commerce, Adobe Commerce,
+      Python, APIs, cloud, automation and enterprise integration</strong>.
+
+      For anything I can't answer, contact Balaji directly at
+      📧 <a href="mailto:gkmbala@gmail.com">gkmbala@gmail.com</a>.
+    `;
+  }
+
+  // ------------------------------------------------------------
+  // DEFAULT
+  // ------------------------------------------------------------
+  return `
+    I can answer questions about Balaji's:
+
+    <br><br>
+
+    🤖 <strong>Agentic AI & LLM applications</strong><br>
+    🛒 <strong>Agentic Commerce & AI shopping assistants</strong><br>
+    🧠 <strong>RAG, tool calling & AI automation</strong><br>
+    🏪 <strong>Adobe Commerce / Magento</strong><br>
+    🐍 <strong>Python & FastAPI</strong><br>
+    🔌 <strong>APIs & Enterprise Integration</strong><br>
+    ☁️ <strong>AWS, Azure, Docker & CI/CD</strong><br>
+    🏗️ <strong>Technical Architecture</strong><br>
+    📊 <strong>Data, SQL & Power BI</strong><br>
+    💼 <strong>Career & experience</strong>
+
+    <br><br>
+
+    Try asking: <strong>"What is Balaji's Agentic Commerce experience?"</strong>
+    or <strong>"What AI technologies does Balaji use?"</strong>
+  `;
 }
 </script>
 </body>
