@@ -142,26 +142,45 @@ The goal is to build AI applications that can **understand a request, retrieve r
 
 ---
 
-## Adobe Commerce & E-commerce
+## E-commerce / Adobe Commerce / Cloud /Agentic Commerce
 
 ![Adobe Commerce](https://img.shields.io/badge/Adobe_Commerce-F21900?style=flat\&logo=adobe\&logoColor=white)
-
+![Ecommerce](https://img.shields.io/badge/Flask-000000?style=flat\&logo=flask\&logoColor=white)
+![Prestashop](https://img.shields.io/badge/Laravel-FF2D20?style=flat\&logo=laravel\&logoColor=white)
+![Cloud](https://img.shields.io/badge/Azure-0078D4?style=flat\&logo=microsoftazure\&logoColor=white)
+* Adobe Commerce / Magento 2.x / Prestashop / SAP / Cloud
 * Adobe Commerce / Magento 2.x
+* PrestaShop
+* SAP commerce / SAP integrations
 * B2B and B2C e-commerce
-* Custom modules and extensions
+* Multi-store / multi-website architecture
+* Custom modules, extensions and business features
 * Catalogue and product management
-* Checkout development
-* Customer journeys
-* Multi-store architecture
-* Hyv?
-* REST APIs
+* AI/Agentic product catalogue and product discovery
+* AI-powered product search and recommendations
+* OpenSearch
+* ElastiSuite / Elasticsearch-based commerce search
+* Search relevance, filtering, faceting and catalogue indexing
+* Checkout development and custom checkout flows
+* Customer journeys and conversion-focused commerce workflows
+* CRM integrations and customer data workflows
 * ERP integrations
-* Inventory integrations
-* Order integrations
-* Payment integrations
-* Logistics integrations
-* Performance optimisation
-* Commerce automation
+* nventory / stock integrations
+* Order management integrations
+* Third-party payment gateway integrations
+* Custom payment flows and payment orchestration
+* Logistics / fulfilment integrations
+* REST APIs and API integration strategy
+* Business-system orchestration and integration layers
+* Architecture design for commerce orchestration layers
+* Agent-to-commerce API integration
+* Agentic product discovery and shopping workflows
+* Catalogue ¡ú Search ¡ú Inventory ¡ú Cart ¡ú Order workflows
+* AI/RAG-based product and business knowledge integration
+*  Commerce automation
+* Performance optimisation and scalability
+* Caching, indexing and database optimisation
+Integration reliability, monitoring and error handling
 
 **Adobe Certified Magento Commerce Developer**
 
